@@ -1,0 +1,40 @@
+.videoPlaceholder {
+  width: 12.5rem;
+  height: 14.5rem;
+  border: 1px solid #eee;
+  box-shadow: 0 5px 10px black;
+  text-align: center;
+  padding: 0.9375rem;
+  margin: 0.9375rem;
+}
+
+.movieTitle {
+  display: flex !important;
+  flex-direction: row !important;
+  border: 5px dashed red;
+  padding: 0.9375rem;
+  margin: 0 auto;
+  margin-top: 	1.25rem;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+}
+.flex{
+  display:flex;
+}
+.watch-text{
+  text-transform: uppercase;
+  font-style: italic;
+  color: blue;
+  font-size: 4rem;
+}
+.two-text{
+font-size: 3rem;
+color: red;
+}
+.para-heading{
+  margin: 0 1.25rem;
+  text-align: center;
+}
