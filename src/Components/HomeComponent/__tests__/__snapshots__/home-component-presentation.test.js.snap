@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeComponentPresentation renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`MovieAndTitleComponent renders correctly 1`] = `ShallowWrapper {}`;
