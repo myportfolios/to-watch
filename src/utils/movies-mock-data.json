@@ -60,5 +60,272 @@
       "Awards": "5 wins & 8 nominations.",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_SX300.jpg"
     }
-  ]
-}
+  ],
+  "suggestedMovies": [
+    
+      
+          {
+            
+            "id": 454283,
+            
+            "vote_average": 5.2,
+            "title": "Action Point",
+            "popularity": 9.631,
+            "poster_path": "/5lqJx0uNKrD1cEKgaqF1LBsLAoi.jpg",
+            "original_language": "en",
+            "original_title": "Action Point",
+            "genre_ids": [
+              35,
+              18
+            ],
+            "backdrop_path": "/tmpY6f0Lf7Dnx6inByjvHby4AYf.jpg",
+            "adult": false,
+            "overview": "A daredevil designs and operates his own theme park with his friends.",
+            "release_date": "2018-06-01"
+          },
+          {
+            
+            "id": 550315,
+            
+            "vote_average": 6.2,
+            "title": "Fireman Sam - Set for Action!",
+            "popularity": 3.546,
+            "poster_path": "/lBWcp9qs8WxSrYpNbqWgZwslPdF.jpg",
+            "original_language": "en",
+            "original_title": "Fireman Sam - Set for Action!",
+            "genre_ids": [
+              10751,
+              16
+            ],
+            "backdrop_path": "/jkXMZIoJxAKY3BQDIL2JGgshEWx.jpg",
+            "adult": false,
+            "overview": "",
+            "release_date": "2018-09-27"
+          },
+          {
+            
+            "id": 532788,
+            
+            "vote_average": 10,
+            "title": "Action Figures 2",
+            "popularity": 2.459,
+            "poster_path": "/UjpY0YG9sRO4R9LHaNiPNCSj7t.jpg",
+            "original_language": "en",
+            "original_title": "Action Figures 2",
+            "genre_ids": [
+              28
+            ],
+            "backdrop_path": null,
+            "adult": false,
+            "overview": "Action Figures 2 is the sequel to Travis Pastrana’s hit action-sports movie, Action Figures. The Nitro Circus founder and 17-time X Games medalist does it again with a film he directed and produced alongside his best friends, and in association with Nitro Circus. Travis leaves nothing on the table for this sequel and pushes boundaries even further for this action-packed film. The cast are real-life action figures and have all contributed to filming and editing their sections of the film. Action Figures 2 is a fun-fueled, high-octane, wild ride of a film.",
+            "release_date": "2018-06-28"
+          },
+          {
+            
+            "id": 552872,
+            
+            "vote_average": 3,
+            "title": "Legal Action",
+            "popularity": 1.4,
+            "poster_path": "/k22cE5YBgQpuf8Vsh2LpkyOEM2F.jpg",
+            "original_language": "en",
+            "original_title": "Legal Action",
+            "genre_ids": [
+              28,
+              37
+            ],
+            "backdrop_path": "/jHvUu1G1C176OfIBnVwwVhRC6nU.jpg",
+            "adult": false,
+            "overview": "Big-city lawyer Casey McKay, is drawn to a small town by his ex-wife to defend her brother, accused of murdering a DA. He discovers a web of conspiracy that puts him face-to-face with the town's most corrupt land developer, Mr. Gates.",
+            "release_date": "2018-10-08"
+          },
+          {
+            
+            "id": 522360,
+            
+            "vote_average": 0,
+            "title": "Dykes, Camera, Action!",
+            "popularity": 1.485,
+            "poster_path": "/79f3nQ8wk4ZZv6ix16rKpB7Cqup.jpg",
+            "original_language": "en",
+            "original_title": "Dykes, Camera, Action!",
+            "genre_ids": [
+              99
+            ],
+            "backdrop_path": null,
+            "adult": false,
+            "overview": "The film examines the ways that women directors have contributed to this genre and emphasizes the role that the media play in representation of sexuality and gender, underscoring the power that film has to shape our perceptions of one another. Visually, this documentary comes to life on screen through compelling and intimate original interviews, intercut with emotionally-charged archival footage, photographs, ephemera, inspired music, and film clips.",
+            "release_date": "2018-06-19"
+          },
+          {
+            
+            "id": 543165,
+            
+            "vote_average": 7.7,
+            "title": "Uncharted: Live Action Fan Film",
+            "popularity": 1.898,
+            "poster_path": "/jCcBSugU38FFJfAbZ9O6oIgoHFr.jpg",
+            "original_language": "en",
+            "original_title": "Uncharted: Live Action Fan Film",
+            "genre_ids": [
+              28,
+              12
+            ],
+            "backdrop_path": "/rMzCJ7C9EfHmQZMkPDVqgEHM7zI.jpg",
+            "adult": false,
+            "overview": "Treasure hunter Nathan Drake finds himself captured while searching for a lost treasure.",
+            "release_date": "2018-07-16"
+          },
+          {
+            
+            "id": 561389,
+            
+            "vote_average": 0,
+            "title": "This Action Lies",
+            "popularity": 1.4,
+            "poster_path": null,
+            "original_language": "en",
+            "original_title": "This Action Lies",
+            "genre_ids": [],
+            "backdrop_path": null,
+            "adult": false,
+            "overview": "This Action Lies is a movie about the limits of observation, about staring very hard at something while listening to something else. It is a paranoid polyphonic apology of a simple act: offering three perspectives of an object that may not exist in a room that cannot exist, while at the mercy of a mistrustful monologue. In other words, a defense of cinema. This project expands ideas introduced in one of Kienitz Wilkins’ previous films, Indefinite Pitch (2016), and is similarly voice-driven, using an extended monologue to analyze a common and underappreciated commercial product, elevating it to the status of an almost Platonic form.",
+            "release_date": "2018-01-01"
+          },
+          {
+            
+            "id": 522811,
+            
+            "vote_average": 7.1,
+            "title": "The Accidental Detective 2: In Action",
+            "popularity": 5.129,
+            "poster_path": "/5Wr8uwFowyHMmfiygs7Tkjbbxkp.jpg",
+            "original_language": "ko",
+            "original_title": "탐정: 리턴즈",
+            "genre_ids": [
+              35,
+              80
+            ],
+            "backdrop_path": "/1kzsu5rW3xt4K96hXyooWAxBeVD.jpg",
+            "adult": false,
+            "overview": "A comic book storekeeper, Dae-man, and the legendary homicide detective, Tae-su, who met on previous case quit their jobs to open a private detective agency.",
+            "release_date": "2018-06-13"
+          },
+          {
+            
+            "id": 562109,
+            
+            "vote_average": 0,
+            "title": "Backstage Action",
+            "popularity": 0.6,
+            "poster_path": "/mFuwJvXyJboyO8reBkjKoCd0RTj.jpg",
+            "original_language": "fr",
+            "original_title": "Faites sortir les figurants",
+            "genre_ids": [
+              99
+            ],
+            "backdrop_path": null,
+            "adult": false,
+            "overview": "This is de facto a film about a film, with the only difference being that the focus is exclusively on the extras. They are filmed while waiting to take their turn, while conversing with others, and thinking about their performances. Although they take their duties very seriously and long to be stars, for the filmmakers, they’re just people that can be coordinated as necessary, nothing more. This film, on the contrary, gives them full consideration, revealing their personalities, what they experience, and what they dream of. The footage comes from many different places where movies are made, involving extras from all different nationalities.",
+            "release_date": "2018-10-27"
+          },
+          {
+            
+            "id": 541291,
+            
+            "vote_average": 0,
+            "title": "Beyond Action",
+            "popularity": 0.6,
+            "poster_path": "/hZhLsHvg37upX2t2WXVcy5eiSCG.jpg",
+            "original_language": "es",
+            "original_title": "Beyond Action",
+            "genre_ids": [],
+            "backdrop_path": "/zhbqjOfYnxynkvTnmAHaqv3tsfn.jpg",
+            "adult": false,
+            "overview": "The wife of a pilot in the film Top Gun discusses the interconnection between images through time and the mystery involving her husband’s death. Can an image kill a man? Beyond Action is a fictional essay that analyzes the boundaries between image, violence and reality.",
+            "release_date": "2018-07-19"
+          },
+          {
+            
+            "id": 460019,
+            
+            "vote_average": 6,
+            "title": "Truth or Dare",
+            "popularity": 17.837,
+            "poster_path": "/ei2waWQAG8NP244WShIFgGu9IOu.jpg",
+            "original_language": "en",
+            "original_title": "Truth or Dare",
+            "genre_ids": [
+              53,
+              27
+            ],
+            "backdrop_path": "/jrZTNZmcjUVh7DPy6txp93Aczpa.jpg",
+            "adult": false,
+            "overview": "A harmless game of \"Truth or Dare\" among friends turns deadly when someone—or something—begins to punish those who tell a lie—or refuse the dare.",
+            "release_date": "2018-04-12"
+          },
+          {
+            
+            "id": 571083,
+            
+            "vote_average": 10,
+            "title": "In Praise of Action",
+            "popularity": 0.6,
+            "poster_path": "/dQnlTFnbWndwSvzIGUzplW7CgDI.jpg",
+            "original_language": "en",
+            "original_title": "In Praise of Action",
+            "genre_ids": [
+              99
+            ],
+            "backdrop_path": null,
+            "adult": false,
+            "overview": "Documentary about stunts and their recognition in the film industry.  Without their selfless contribution to film, the movies we know and love, would not be nearly the same. It is the art of ACTION that allows us to experience those thrilling moments Just as that famous Director's saying goes, \"Lights, Camera. - ACTION!\" There is an understood, yet UNSUNG value to the last of those three necessary components in film-making. Directors, Producers, and Studio Execs all know that the work of Stunt Professionals is an effective way to motivate people into the box offices and to help captivate an audience during Award Shows. Many people do not know that Stunt Professionals do not get an Academy Award, even though they are the ones who literally risk life for their life's passion. In Praise of ACTION makes a statement why Stunt Professionals are being forgotten in the biggest film awards ceremonies? This is the right time to talk about it.",
+            "release_date": "2018-12-20"
+          },
+          {
+            
+            "id": 503240,
+            "video": true,
+            "vote_average": 10,
+            "title": "2018 Oscar Nominated Short Films: Live Action",
+            "popularity": 0.6,
+            "poster_path": "/txxVOVmBHWA33663qU3zAHBAk9A.jpg",
+            "original_language": "en",
+            "original_title": "2018 Oscar Nominated Short Films: Live Action",
+            "genre_ids": [
+              35,
+              18,
+              36
+            ],
+            "backdrop_path": "/pJu7wLQA27WIEafJELCiRLrO2tv.jpg",
+            "adult": false,
+            "overview": "The year’s most spectacular Live Action short films.",
+            "release_date": "2018-02-27"
+          },
+          {
+            
+            "id": 366964,
+            
+            "vote_average": 5.4,
+            "title": "Mohawk",
+            "popularity": 2.279,
+            "poster_path": "/wGcDLqbQ2mVX7NhzU70noTUwGJa.jpg",
+            "original_language": "en",
+            "original_title": "Mohawk",
+            "genre_ids": [
+              28,
+              36,
+              18,
+              10749,
+              53,
+              10752
+            ],
+            "backdrop_path": "/uvY0uqCH2l74zvehPLdgFiIPRYa.jpg",
+            "adult": false,
+            "overview": "A young Mohawk woman and her two lovers battle a squad of American soldiers hell-bent on revenge.",
+            "release_date": "2018-03-02"
+          }
+        ]
+      }
+    
+ 

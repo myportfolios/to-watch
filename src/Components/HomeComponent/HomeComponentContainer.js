@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import HomeComponentPresentation from "./HomeComponentPresentation";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getMovies } from "../../store/actions/moviesAction";
+import { getSuggestedMovies } from "../../store/actions/moviesAction";
 
 export class HomeComponentContainer extends Component {
   componentDidMount() {
-    this.props.getMovies();
+    this.props.getSuggestedMovies();
   }
   render() {
     const { movies } = this.props;
@@ -17,14 +17,14 @@ export class HomeComponentContainer extends Component {
 
 HomeComponentContainer.propTypes = {
   movies: PropTypes.array.isRequired,
-  getMovies: PropTypes.func.isRequired
+  getSuggestedMovies: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  movies: state.movies.moviesData
+  movies: state.movies.data
 });
 
 export default connect(
   mapStateToProps,
-  { getMovies }
+  { getSuggestedMovies }
 )(HomeComponentContainer); 

@@ -1,4 +1,5 @@
 import React from "react";
+import {BASE_URL,POSTER_SIZES} from '../../store/reducers/reducer-constants'
 import "./home_component.css";
 
 const HomeComponentPresentation = ({ movies }) => { 
@@ -19,15 +20,26 @@ export default HomeComponentPresentation;
 
 export const MovieAndTitleComponent = ({movies}) => {
 
-    let moviesJSX = movies && movies.map((movie) => {
-       return (
-      <div key={movie.Title}>
-        <img className="img-thumbnail videoPlaceholder" alt="poster" src={movie.Poster} />
-        <div className="title">{movie.Title}</div>
-      </div> 
-    )
+  //   let moviesJSX = movies && movies.map((movie) => {
+  //      return (
+  //     <div key={movie.Title}>
+  //       <img className="img-thumbnail videoPlaceholder" alt="poster" src={movie.poster_path} />
+  //       <div className="title">{movie.title}</div>
+  //     </div> 
+  //   )
     
-  })
+  // })
+
+  let size = 4;
+    let moviesJSX = movies && movies.slice(0, size).map((movie) => { 
+        return (
+          <div key={movie.title}>
+            {/* <img className="img-thumbnail videoPlaceholder" alt="poster" src={movie.poster_path} /> */}
+            <img className="img-thumbnail videoPlaceholder" alt="poster" src={`${BASE_URL}${POSTER_SIZES}${movie.poster_path}`} />
+            <div className="title">{movie.title}</div>
+          </div> 
+        ) 
+})
   
   return (
     <div className="flex">

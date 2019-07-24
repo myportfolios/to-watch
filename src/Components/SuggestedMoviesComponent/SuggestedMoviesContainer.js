@@ -31,3 +31,9 @@ export default connect(mapStateToProps,
 // SuggestedMoviesContainer.propTypes = {
 
 // }
+////////////SuggestedMovie Endpoint///////////////////
+
+/*
+https://api.themoviedb.org/3/search/movie?primary_release_year=2018&include_adult=false&page=1&query=action&language=en-US&api_key=2afb1d4ebd6b0b7548fc20dd30d0ac26
+*/
+//////////////////////////////////////////////////////////

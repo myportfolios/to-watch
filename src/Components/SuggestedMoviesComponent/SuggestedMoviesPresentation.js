@@ -1,7 +1,8 @@
 import React from 'react';
 import './suggested-movies.css';
 
-export const SuggestedMoviesPresentation = () => {
+export const SuggestedMoviesPresentation = ({listOfMovies}) => {
+    console.log(listOfMovies);
     return (
         <div>
             <h2 className="sub-heading">Suggested Movies</h2>
