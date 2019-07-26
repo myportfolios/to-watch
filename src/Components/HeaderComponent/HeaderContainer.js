@@ -1,0 +1,6 @@
+const getNames = () => {
+    return "name";
+
+
+    
+}
