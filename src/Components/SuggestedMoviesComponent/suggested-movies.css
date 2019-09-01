@@ -1,4 +1,16 @@
-.sub-heading{
-    padding: 0.9375rem 0rem;
-    text-transform: uppercase;
+.flex {
+  display: flex;
+}
+.img_size {
+  width: 200px;
+  height: 200px;
+}
+.align-text {
+  text-align: center;
+  font-size: 16px;
+  width: 180px;
+}
+
+.float-left {
+  float: left;
 }

@@ -8,9 +8,10 @@ export class HomeComponentContainer extends Component {
   componentDidMount() {
     this.props.getSuggestedMovies();
   }
+
   render() {
     const { movies } = this.props;
-    
+
     return <HomeComponentPresentation movies={movies} />;
   }
 }
@@ -27,4 +28,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getSuggestedMovies }
-)(HomeComponentContainer); 
+)(HomeComponentContainer);

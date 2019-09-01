@@ -3,11 +3,11 @@
 /**************************************************/
 
 export const getActionTypes = actionKey => {
-    return {
-        FETCHING: `${actionKey}_fetching`,
-        FULFILLED: `${actionKey}_fulfilled`,
-        REJECTED: `${actionKey}_rejected`,
-    };
+  return {
+    FETCHING: `${actionKey}_fetching`,
+    FULFILLED: `${actionKey}_fulfilled`,
+    REJECTED: `${actionKey}_rejected`
+  };
 };
 
 //API  related actions

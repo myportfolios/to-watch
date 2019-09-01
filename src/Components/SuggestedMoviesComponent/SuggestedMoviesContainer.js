@@ -1,39 +1,78 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import SuggestedMoviesPresentation from "./SuggestedMoviesPresentation";
+import { getLatestMovies } from "../../store/actions/moviesAction";
+import PropTypes from "prop-types";
 
-import PropTypes from 'prop-types';
+import { connect } from "react-redux";
 
-import SuggestedMoviesPresentation from './SuggestedMoviesPresentation';
+class SuggestedMoviesContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      randomMovies: []
+    };
+  }
 
+  componentDidMount() {
+    this.props.getLatestMovies();
 
+    setInterval(() => {
+      this.updateRandomMovieList(this.props.latestMovies);
+    }, 8000);
+  }
 
-export class SuggestedMoviesContainer extends Component {
-    
-    render() {
-        const { listOfMovies } = this.props;
-        console.log(listOfMovies);
-        return (
-            <div>
-                <SuggestedMoviesPresentation listOfMovies={listOfMovies} />
-            </div>
-        )
-    }
+  updateRandomMovieList = list => {
+    let size = 4;
+    // Do manipulations
+    let randomMovies = list.slice(0, size).map(() => {
+      // console.log(Math.floor(Math.random() * list.length));
+      console.log(list);
+      return list.splice(Math.floor(Math.random() * list.length), 1)[0];
+    });
+    this.setState({
+      randomMovies: randomMovies
+    });
+  };
+  render() {
+    const { latestMovies } = this.props;
+    const { randomMovies } = this.state;
+    console.log(latestMovies);
+    return (
+      <div>
+        <SuggestedMoviesPresentation
+          latestMovies={latestMovies}
+          randomMovies={randomMovies}
+        />
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = (state) => ({
-listOfMovies: state.movies.moviesData
-})
+const mapStateToProps = state => {
+  return {
+    latestMovies: state.latestMovies.data
+  };
+};
 
+export default connect(
+  mapStateToProps,
+  { getLatestMovies }
+)(SuggestedMoviesContainer);
 
-export default connect(mapStateToProps,
-    {})(SuggestedMoviesContainer);
+SuggestedMoviesContainer.propTypes = {
+  latestMovies: PropTypes.array.isRequired,
+  getLatestMovies: PropTypes.func.isRequired
+};
 
-// SuggestedMoviesContainer.propTypes = {
-
-// }
-////////////SuggestedMovie Endpoint///////////////////
-
-/*
-https://api.themoviedb.org/3/search/movie?primary_release_year=2018&include_adult=false&page=1&query=action&language=en-US&api_key=2afb1d4ebd6b0b7548fc20dd30d0ac26
+/* 
+updateRandomMovieList = list => {
+    let size = 4;
+    // Do manipulations
+    let randomMovies = list.slice(0, size).map(() => {
+      return list.splice(Math.floor(Math.random() * list.length), 1)[0];
+    }, list.slice());
+    this.setState({
+      randomMovies: randomMovies
+    });
+  };
 */
-//////////////////////////////////////////////////////////

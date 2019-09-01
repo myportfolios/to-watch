@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
-import moviesReducer from "./moviesReducer";
+import { suggestedMoviesReducer, latestMoviesReducer } from "./moviesReducer";
 
 export default combineReducers({
-  movies: moviesReducer
+  movies: suggestedMoviesReducer,
+  latestMovies: latestMoviesReducer
 });
