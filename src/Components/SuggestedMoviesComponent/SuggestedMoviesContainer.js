@@ -16,8 +16,13 @@ class SuggestedMoviesContainer extends Component {
   componentDidMount() {
     this.props.getLatestMovies();
 
-    setInterval(() => {
-      this.updateRandomMovieList(this.props.latestMovies);
+    setInterval(async () => {
+      if (this.props.latestMovies.length === 0) {
+        this.props.getLatestMovies();
+        return;
+      }
+
+      await this.updateRandomMovieList(this.props.latestMovies);
     }, 8000);
   }
 
@@ -27,7 +32,7 @@ class SuggestedMoviesContainer extends Component {
     let randomMovies = list.slice(0, size).map(() => {
       // console.log(Math.floor(Math.random() * list.length));
       console.log(list);
-      return list.splice(Math.floor(Math.random() * list.length), 1)[0];
+      return list && list.splice(Math.floor(Math.random() * list.length), 1)[0];
     });
     this.setState({
       randomMovies: randomMovies
@@ -63,16 +68,3 @@ SuggestedMoviesContainer.propTypes = {
   latestMovies: PropTypes.array.isRequired,
   getLatestMovies: PropTypes.func.isRequired
 };
-
-/* 
-updateRandomMovieList = list => {
-    let size = 4;
-    // Do manipulations
-    let randomMovies = list.slice(0, size).map(() => {
-      return list.splice(Math.floor(Math.random() * list.length), 1)[0];
-    }, list.slice());
-    this.setState({
-      randomMovies: randomMovies
-    });
-  };
-*/
