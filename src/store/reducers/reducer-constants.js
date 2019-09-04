@@ -13,7 +13,7 @@ export const getActionTypes = actionKey => {
 //API  related actions
 export const ACTION_KEY_GET_SELECTED_MOVIES = "get_selected_movies";
 export const ACTION_KEY_GET_LATEST_MOVIES = "get_latest_movies";
-export const ACTION_KEY_ACTION_THREE = "get_action_three";
+export const ACTION_KEY_TOP_TRENDY_FILMS = "get_top_trendy_films";
 export const ACTION_KEY_ACTION_FOUR = "get_action_four";
 
 //User  related actions

@@ -1,6 +1,7 @@
 import {
   ACTION_KEY_GET_SELECTED_MOVIES,
-  ACTION_KEY_GET_LATEST_MOVIES
+  ACTION_KEY_GET_LATEST_MOVIES,
+  ACTION_KEY_TOP_TRENDY_FILMS
 } from "../reducers/reducer-constants";
 // import moviesData from '../../utils/movies-mock-data';
 import { HTTP_METHODS, API_URL } from "../../services/constants";
@@ -39,5 +40,11 @@ export const getLatestMovies = () => dispatch => {
   return fetchCommon(API_URL.LATEST_MOVIES, {}, HTTP_METHODS.GET)(
     dispatch,
     ACTION_KEY_GET_LATEST_MOVIES
+  );
+};
+export const getTrendyFilms = () => dispatch => {
+  return fetchCommon(API_URL.DAILY_TRENDING_MOVIES, {}, HTTP_METHODS.GET)(
+    dispatch,
+    ACTION_KEY_TOP_TRENDY_FILMS
   );
 };

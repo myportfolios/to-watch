@@ -1,7 +1,8 @@
 import {
   getActionTypes,
   ACTION_KEY_GET_SELECTED_MOVIES,
-  ACTION_KEY_GET_LATEST_MOVIES
+  ACTION_KEY_GET_LATEST_MOVIES,
+  ACTION_KEY_TOP_TRENDY_FILMS
 } from "../reducers/reducer-constants";
 
 export const suggestedMoviesReducer = (
@@ -86,6 +87,40 @@ export const latestMoviesReducer = (
         ...state,
         fetching: false,
         error: action.payload.notifications
+      };
+    default:
+      return state;
+  }
+};
+export const getTrendyFilmsReducer = (
+  state = { fetching: true, data: [], error: [] },
+  action = { type: "", payload: "" }
+) => {
+  const REDUCER_GET_TRENDY_MOVIES = getActionTypes(ACTION_KEY_TOP_TRENDY_FILMS);
+  switch (action.type) {
+    // Fetching ----------------------------------------------------
+    case REDUCER_GET_TRENDY_MOVIES.FETCHING:
+      return {
+        fetching: true,
+        data: [],
+        error: []
+      };
+    // Fulfilled ----------------------------------------------------
+    case REDUCER_GET_TRENDY_MOVIES.FULFILLED:
+      const data = action.payload.results;
+      return {
+        fetching: false,
+        data,
+        error: []
+      };
+
+    // Rejected ----------------------------------------------------
+    case REDUCER_GET_TRENDY_MOVIES.REJECTED:
+      const error = action.payload.notifications;
+      return {
+        fetching: false,
+        data: [],
+        error
       };
     default:
       return state;

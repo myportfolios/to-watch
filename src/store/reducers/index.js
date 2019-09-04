@@ -1,7 +1,12 @@
 import { combineReducers } from "redux";
-import { suggestedMoviesReducer, latestMoviesReducer } from "./moviesReducer";
+import {
+  suggestedMoviesReducer,
+  latestMoviesReducer,
+  getTrendyFilmsReducer
+} from "./moviesReducer";
 
 export default combineReducers({
   movies: suggestedMoviesReducer,
-  latestMovies: latestMoviesReducer
+  latestMovies: latestMoviesReducer,
+  trendyMovies: getTrendyFilmsReducer
 });
