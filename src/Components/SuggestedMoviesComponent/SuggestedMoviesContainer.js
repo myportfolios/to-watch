@@ -14,21 +14,24 @@ class SuggestedMoviesContainer extends Component {
     this.state = {
       randomMovies: [],
       isLatestMoviesCalled: false,
-      isTrendyMoviesCalled: false
+      isTrendyMoviesCalled: true
     };
   }
 
   componentDidMount() {
-    this.props.getLatestMovies();
+    //make initial call to load data in gallery
     this.setState({ isLatestMoviesCalled: true });
+    this.setState({ isTrendyMoviesCalled: false });
 
+    // this.props.getLatestMovies();
+    this.props.latestMovies.length === 0
+      ? this.props.getLatestMovies()
+      : this.props.getLatestMovies();
     setInterval(async () => {
-      if (this.props.latestMovies.length === 0) {
-        this.props.getLatestMovies();
-        return;
-      }
-
-      await this.updateRandomMovieList(this.props.latestMovies);
+      this.state.isLatestMoviesCalled === true ||
+      this.state.isTrendyMoviesCalled === false
+        ? await this.updateRandomMovieList(this.props.latestMovies)
+        : await this.updateRandomMovieList(this.props.trendyMovies);
     }, 8000);
   }
 
@@ -43,15 +46,17 @@ class SuggestedMoviesContainer extends Component {
     });
   };
   filmFilterHandler = () => {
-    this.props.getTrendyFilms();
     this.setState({
       isLatestMoviesCalled: false,
       isTrendyMoviesCalled: true
     });
+
+    this.props.getTrendyFilms();
+
     console.log("yes!");
   };
   render() {
-    const { latestMovies } = this.props;
+    const { latestMovies, trendyMovies } = this.props;
     const { randomMovies } = this.state;
 
     return (
@@ -70,7 +75,8 @@ class SuggestedMoviesContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    latestMovies: state.latestMovies.data
+    latestMovies: state.latestMovies.data,
+    trendyMovies: state.trendyMovies.data
   };
 };
 

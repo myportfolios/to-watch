@@ -22,6 +22,8 @@ export default function SuggestedMoviesPresentation({
       <SuggestedMoviesGallery
         randomMovies={randomMovies}
         latestMovies={latestMovies}
+        isLatestMoviesCalled={isLatestMoviesCalled}
+        isTrendyMoviesCalled={isTrendyMoviesCalled}
         className="col-lg-8"
       />
     </div>

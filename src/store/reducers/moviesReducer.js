@@ -48,7 +48,7 @@ export const suggestedMoviesReducer = (
       return state;
   }
 };
-export default suggestedMoviesReducer;
+// export default suggestedMoviesReducer;
 
 export const latestMoviesReducer = (
   state = {
@@ -108,6 +108,7 @@ export const getTrendyFilmsReducer = (
     // Fulfilled ----------------------------------------------------
     case REDUCER_GET_TRENDY_MOVIES.FULFILLED:
       const data = action.payload.results;
+
       return {
         fetching: false,
         data,
