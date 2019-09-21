@@ -6,9 +6,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./suggested-movies.css";
 export default function SuggestedMoviesPresentation({
-  latestMovies,
+  // latestMovies,
   randomMovies,
-  filmFilterHandler,
+  trendyMoviesHandler,
   isLatestMoviesCalled,
   isTrendyMoviesCalled
 }) {
@@ -16,12 +16,12 @@ export default function SuggestedMoviesPresentation({
     <div className="row">
       <FilterMoviesComponent
         className="col-lg-4"
-        filmFilterHandler={filmFilterHandler}
+        trendyMoviesHandler={trendyMoviesHandler}
       />
 
       <SuggestedMoviesGallery
         randomMovies={randomMovies}
-        latestMovies={latestMovies}
+        // latestMovies={latestMovies}
         isLatestMoviesCalled={isLatestMoviesCalled}
         isTrendyMoviesCalled={isTrendyMoviesCalled}
         className="col-lg-8"
@@ -30,12 +30,12 @@ export default function SuggestedMoviesPresentation({
   );
 }
 
-const FilterMoviesComponent = ({ filmFilterHandler }) => {
+const FilterMoviesComponent = ({ trendyMoviesHandler }) => {
   return (
     <div className="float-left">
       <span>Filter</span>
       <ul>
-        <li onClick={filmFilterHandler}>
+        <li onClick={trendyMoviesHandler}>
           <a href="#">2019 Top Trendy Movies</a>
         </li>
         <li>
