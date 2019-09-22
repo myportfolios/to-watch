@@ -1,10 +1,15 @@
 import {
   ACTION_KEY_GET_SELECTED_MOVIES,
   ACTION_KEY_GET_LATEST_MOVIES,
-  ACTION_KEY_TOP_TRENDY_FILMS
+  ACTION_KEY_TOP_TRENDY_FILMS,
+  ACTION_KEY_GET_OSCAR_NOMINATIONS
 } from "../reducers/reducer-constants";
 // import moviesData from '../../utils/movies-mock-data';
-import { HTTP_METHODS, API_URL } from "../../services/constants";
+import {
+  HTTP_METHODS,
+  API_URL,
+  OSCAR_API_URLS
+} from "../../services/constants";
 import { fetchCommon } from "../../services/api";
 
 // export const getMovies = (action,payload) => {
@@ -46,5 +51,14 @@ export const getTrendyFilms = () => dispatch => {
   return fetchCommon(API_URL.DAILY_TRENDING_MOVIES, {}, HTTP_METHODS.GET)(
     dispatch,
     ACTION_KEY_TOP_TRENDY_FILMS
+  );
+};
+//look into this thoroughly
+export const getOscarNominations = nominationUrl => dispatch => {
+  console.log(`${nominationUrl}`);
+
+  return fetchCommon(`${nominationUrl}`, {}, HTTP_METHODS.GET)(
+    dispatch,
+    ACTION_KEY_GET_OSCAR_NOMINATIONS
   );
 };

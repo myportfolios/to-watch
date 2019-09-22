@@ -5,23 +5,27 @@ import {
 } from "../../store//reducers/reducer-constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./suggested-movies.css";
+import { useState } from "react";
 export default function SuggestedMoviesPresentation({
-  // latestMovies,
   randomMovies,
   trendyMoviesHandler,
   isLatestMoviesCalled,
-  isTrendyMoviesCalled
+  isTrendyMoviesCalled,
+  oscarsMoviesHandler
 }) {
+  const [showOscars, setShowOscars] = useState(false);
   return (
     <div className="row">
       <FilterMoviesComponent
         className="col-lg-4"
         trendyMoviesHandler={trendyMoviesHandler}
+        oscarsMoviesHandler={oscarsMoviesHandler}
+        showOscars={showOscars}
+        setShowOscars={setShowOscars}
       />
 
       <SuggestedMoviesGallery
         randomMovies={randomMovies}
-        // latestMovies={latestMovies}
         isLatestMoviesCalled={isLatestMoviesCalled}
         isTrendyMoviesCalled={isTrendyMoviesCalled}
         className="col-lg-8"
@@ -30,30 +34,66 @@ export default function SuggestedMoviesPresentation({
   );
 }
 
-const FilterMoviesComponent = ({ trendyMoviesHandler }) => {
+const FilterMoviesComponent = ({
+  trendyMoviesHandler,
+  oscarsMoviesHandler,
+  showOscars,
+  setShowOscars
+}) => {
   return (
     <div className="float-left">
       <span>Filter</span>
-      <ul>
-        <li onClick={trendyMoviesHandler}>
-          <a href="#">2019 Top Trendy Movies</a>
-        </li>
-        <li>
-          <a href="#">Oscars</a>
-        </li>
-        <li>
-          <a href="#">At the Cinemas</a>
-        </li>
-        <li>
-          <a href="#">Espionages</a>
-        </li>
-        <li>
-          <a href="#">Romance</a>
-        </li>
-        <li>
-          <a href="#">Action</a>
-        </li>
-      </ul>
+
+      <p onClick={trendyMoviesHandler}>2019 Top Trendy Movies</p>
+
+      <p onClick={() => setShowOscars(!showOscars)}>Oscars</p>
+      {showOscars ? (
+        <>
+          <p
+            onClick={nomination => {
+              oscarsMoviesHandler(nomination);
+            }}
+          >
+            2012 Oscar Nominations
+          </p>
+          <p
+            onClick={nomination => {
+              oscarsMoviesHandler(nomination);
+            }}
+          >
+            2011 Oscar Nominations
+          </p>
+          <p
+            onClick={nomination => {
+              oscarsMoviesHandler(nomination);
+            }}
+          >
+            2010 Oscar Nominations
+          </p>
+          <p
+            onClick={nomination => {
+              oscarsMoviesHandler(nomination);
+            }}
+          >
+            2009 Oscar Nominations
+          </p>
+        </>
+      ) : (
+        <>
+          <p>
+            <a href="#">At the Cinemas</a>
+          </p>
+          <p>
+            <a href="#">Espionages</a>
+          </p>
+          <p>
+            <a href="#">Romance</a>
+          </p>
+          <p>
+            <a href="#">Action</a>
+          </p>
+        </>
+      )}
       <SearchInput />
     </div>
   );

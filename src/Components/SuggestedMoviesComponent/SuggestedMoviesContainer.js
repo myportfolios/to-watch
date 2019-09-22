@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import SuggestedMoviesPresentation from "./SuggestedMoviesPresentation";
 import {
   getLatestMovies,
-  getTrendyFilms
+  getTrendyFilms,
+  getOscarNominations
 } from "../../store/actions/moviesAction";
 import PropTypes from "prop-types";
+import { OSCARS, OSCAR_API_URLS } from "../../services/constants";
 
 import { connect } from "react-redux";
 
@@ -14,7 +16,8 @@ class SuggestedMoviesContainer extends Component {
     this.state = {
       randomMovies: [],
       isLatestMoviesCalled: false,
-      isTrendyMoviesCalled: false
+      isTrendyMoviesCalled: false,
+      isOscarMoviesCalled: false
     };
   }
 
@@ -56,7 +59,8 @@ class SuggestedMoviesContainer extends Component {
       randomMovies: randomMovies
     });
   };
-  //create event handlers for each api call
+  //********************create event handlers for each api call*****************/
+  //Trendy Movies Handler//
   trendyMoviesHandler = async () => {
     this.setState({
       isLatestMoviesCalled: false,
@@ -66,21 +70,58 @@ class SuggestedMoviesContainer extends Component {
     this.props.getTrendyFilms();
     //pass the response data into the sorting function
     await this.updateRandomMovieList(this.props.trendyMovies);
+  };
+  //Oscar Movies Handler//
+  // oscarsMoviesHandler = nomination => {
+  //   // this.setState({ isOscarMoviesCalled: true });
+  //   let nominationUrl = "";
+  //   switch (nomination) {
+  //     case OSCARS.NOMINATIONS_2012:
+  //       return (nominationUrl = OSCAR_API_URLS.OSCAR_2012);
 
-    console.log("yes!");
+  //     case OSCARS.NOMINATIONS_2011:
+  //       return (nominationUrl = OSCAR_API_URLS.OSCAR_2011);
+
+  //     case OSCARS.NOMINATIONS_2010:
+  //       return (nominationUrl = OSCAR_API_URLS.OSCAR_2010);
+
+  //     case OSCARS.NOMINATIONS_2009:
+  //       return (nominationUrl = OSCAR_API_URLS.OCSAR_2009);
+
+  //     default:
+  //       return nominationUrl;
+  //   }
+  // };
+
+  oscarsMoviesHandler = nomination => {
+    this.setState({ isOscarMoviesCalled: true });
+
+    let nominationUrl = "";
+    if (nomination.target.textContent === OSCARS.NOMINATIONS_2012) {
+      nominationUrl = OSCAR_API_URLS.OSCAR_2012;
+    } else if (nomination.target.textContent === OSCARS.NOMINATIONS_2011) {
+      nominationUrl = OSCAR_API_URLS.OSCAR_2011;
+    } else if (nomination.target.textContent === OSCARS.NOMINATIONS_2010) {
+      nominationUrl = OSCAR_API_URLS.OSCAR_2010;
+    } else if (nomination.target.textContent === OSCARS.NOMINATIONS_2009) {
+      nominationUrl = OSCAR_API_URLS.OCSAR_2009;
+    } else {
+      return nominationUrl;
+    }
+
+    this.props.getOscarNominations(nominationUrl);
   };
   render() {
-    // const { latestMovies, trendyMovies } = this.props;
     const { randomMovies } = this.state;
 
     return (
       <div>
         <SuggestedMoviesPresentation
-          // latestMovies={latestMovies}
           randomMovies={randomMovies}
           trendyMoviesHandler={this.trendyMoviesHandler}
           isLatestMoviesCalled={this.state.isLatestMoviesCalled}
           isTrendyMoviesCalled={this.state.isTrendyMoviesCalled}
+          oscarsMoviesHandler={this.oscarsMoviesHandler}
         />
       </div>
     );
@@ -96,7 +137,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getLatestMovies, getTrendyFilms }
+  { getLatestMovies, getTrendyFilms, getOscarNominations }
 )(SuggestedMoviesContainer);
 
 SuggestedMoviesContainer.propTypes = {
