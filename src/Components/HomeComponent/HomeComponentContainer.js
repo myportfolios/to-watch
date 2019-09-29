@@ -17,11 +17,11 @@ export class HomeComponentContainer extends Component {
 }
 
 HomeComponentContainer.propTypes = {
-  movies: PropTypes.array.isRequired,
+  movies: PropTypes.array,
   getSuggestedMovies: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   movies: state.movies.data
 });
 

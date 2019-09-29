@@ -3,7 +3,8 @@ import SuggestedMoviesPresentation from "./SuggestedMoviesPresentation";
 import {
   getLatestMovies,
   getTrendyFilms,
-  getOscarNominations
+  getOscarNominations,
+  saveNominationUrlToStore
 } from "../../store/actions/moviesAction";
 import PropTypes from "prop-types";
 import { OSCARS, OSCAR_API_URLS } from "../../services/constants";
@@ -17,9 +18,10 @@ class SuggestedMoviesContainer extends Component {
       randomMovies: [],
       isLatestMoviesCalled: false,
       isTrendyMoviesCalled: false,
-      isOscarMoviesCalled: false
+      isOscarMovies2012Called: false
     };
   }
+  //To do...store "nomination" to redux store and pass it in the componentDidUpdate
 
   async componentDidMount() {
     //make initial call to load data in gallery
@@ -35,16 +37,23 @@ class SuggestedMoviesContainer extends Component {
         this.updateRandomMovieList(this.props.trendyMovies);
         return;
       }
+      if (!!this.state.isOscarMovies2012Called) {
+        this.updateRandomMovieList(this.props.oscar2012);
+      }
     }, 8000);
   }
   //make api calls when list of videos get to the last set
-  async componentDidUpdate(prevProp) {
+  async componentDidUpdate(prevProp, prevState) {
     if (prevProp.latestMovies.length === 4) {
       this.props.getLatestMovies();
       return;
     }
     if (prevProp.trendyMovies.length === 4) {
       this.props.getTrendyFilms();
+    }
+    if (prevProp.oscar2012.length === 1) {
+      this.props.getOscarNominations(this.props.nominationUrl);
+      return;
     }
   }
   //create a "sorting" function that receives the response from api calls and returns random 4 movies from the list
@@ -64,6 +73,7 @@ class SuggestedMoviesContainer extends Component {
   trendyMoviesHandler = async () => {
     this.setState({
       isLatestMoviesCalled: false,
+      isOscarMovies2012Called: false,
       isTrendyMoviesCalled: true
     });
     //call the trendy movies endpoint
@@ -73,28 +83,33 @@ class SuggestedMoviesContainer extends Component {
   };
   //Oscar Movies Handler//
   // oscarsMoviesHandler = nomination => {
-  //   // this.setState({ isOscarMoviesCalled: true });
+  //   // this.setState({ isOscarMovies2012Called: true });
   //   let nominationUrl = "";
   //   switch (nomination) {
-  //     case OSCARS.NOMINATIONS_2012:
-  //       return (nominationUrl = OSCAR_API_URLS.OSCAR_2012);
-
-  //     case OSCARS.NOMINATIONS_2011:
-  //       return (nominationUrl = OSCAR_API_URLS.OSCAR_2011);
-
-  //     case OSCARS.NOMINATIONS_2010:
-  //       return (nominationUrl = OSCAR_API_URLS.OSCAR_2010);
-
-  //     case OSCARS.NOMINATIONS_2009:
-  //       return (nominationUrl = OSCAR_API_URLS.OCSAR_2009);
-
+  //     case nomination.target.textContent === OSCARS.NOMINATIONS_2012:
+  //       nominationUrl = OSCAR_API_URLS.OSCAR_2012;
+  //       break;
+  //     case nomination.target.textContent === OSCARS.NOMINATIONS_2011:
+  //       nominationUrl = OSCAR_API_URLS.OSCAR_2011;
+  //       break;
+  //     case nomination.target.textContent === OSCARS.NOMINATIONS_2010:
+  //       nominationUrl = OSCAR_API_URLS.OSCAR_2010;
+  //       break;
+  //     case nomination.target.textContent === OSCARS.NOMINATIONS_2009:
+  //       nominationUrl = OSCAR_API_URLS.OCSAR_2009;
+  //       break;
   //     default:
-  //       return nominationUrl;
+  //       nominationUrl = "";
   //   }
+  //   this.props.getOscarNominations(nominationUrl);
   // };
 
-  oscarsMoviesHandler = nomination => {
-    this.setState({ isOscarMoviesCalled: true });
+  oscarsMoviesHandler = async nomination => {
+    this.setState({
+      isOscarMovies2012Called: true,
+      isLatestMoviesCalled: false,
+      isTrendyMoviesCalled: false
+    });
 
     let nominationUrl = "";
     if (nomination.target.textContent === OSCARS.NOMINATIONS_2012) {
@@ -109,10 +124,12 @@ class SuggestedMoviesContainer extends Component {
       return nominationUrl;
     }
 
-    this.props.getOscarNominations(nominationUrl);
+    await this.props.getOscarNominations(nominationUrl);
+    await this.props.saveNominationUrlToStore(nominationUrl);
   };
   render() {
     const { randomMovies } = this.state;
+    // const { nominationUrl } = this.props;
 
     return (
       <div>
@@ -131,13 +148,20 @@ class SuggestedMoviesContainer extends Component {
 const mapStateToProps = state => {
   return {
     latestMovies: state.latestMovies.data,
-    trendyMovies: state.trendyMovies.data
+    trendyMovies: state.trendyMovies.data,
+    oscar2012: state.oscarNominations.data,
+    nominationUrl: state.nominationUrl.data
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getLatestMovies, getTrendyFilms, getOscarNominations }
+  {
+    getLatestMovies,
+    getTrendyFilms,
+    getOscarNominations,
+    saveNominationUrlToStore
+  }
 )(SuggestedMoviesContainer);
 
 SuggestedMoviesContainer.propTypes = {

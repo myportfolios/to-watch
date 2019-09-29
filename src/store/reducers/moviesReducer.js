@@ -2,7 +2,10 @@ import {
   getActionTypes,
   ACTION_KEY_GET_SELECTED_MOVIES,
   ACTION_KEY_GET_LATEST_MOVIES,
-  ACTION_KEY_TOP_TRENDY_FILMS
+  ACTION_KEY_TOP_TRENDY_FILMS,
+  ACTION_KEY_GET_OSCAR_NOMINATIONS,
+  ACTION_KEY_GET_NOMINATION_URL,
+  ACTION_KEY_SEARCH_MOVIES
 } from "../reducers/reducer-constants";
 
 export const suggestedMoviesReducer = (
@@ -122,6 +125,82 @@ export const getTrendyFilmsReducer = (
         fetching: false,
         data: [],
         error
+      };
+    default:
+      return state;
+  }
+};
+
+var initialState = [];
+export const getOscarNominationsReducer = (
+  state = { fetching: true, data: initialState, notifications: [] },
+  action = { type: "", payload: {} }
+) => {
+  const REDUCER_GET_OSCAR_NOMINATIONS = getActionTypes(
+    ACTION_KEY_GET_OSCAR_NOMINATIONS
+  );
+  switch (action.type) {
+    // Fetching ----------------------------------------------------
+    case REDUCER_GET_OSCAR_NOMINATIONS.FETCHING:
+      return {
+        fetching: true,
+        data: initialState,
+        notifications: []
+      };
+    // Fulfilled ----------------------------------------------------
+    case REDUCER_GET_OSCAR_NOMINATIONS.FULFILLED:
+      const data = action.payload.items;
+
+      return {
+        fetching: false,
+        data,
+        notifications: []
+      };
+    // Rejected ----------------------------------------------------
+    case REDUCER_GET_OSCAR_NOMINATIONS.REJECTED:
+      const error = action.payload.notifications;
+      return {
+        fetching: false,
+        data: initialState,
+        notifications: error
+      };
+    default:
+      return state;
+  }
+};
+export const nominationUrlReducer = (
+  state = [],
+  action = { type: "", payload: "" }
+) => {
+  if (action.type === ACTION_KEY_GET_NOMINATION_URL) {
+    const data = action.payload;
+
+    return {
+      data
+    };
+  } else {
+    return state;
+  }
+};
+export const searchMovieReducer = (
+  state = { fetching: true, data: [], notifications: [] },
+  action = { type: "", payload: "" }
+) => {
+  const REDUCER_SEARCH_MOVIES = getActionTypes(ACTION_KEY_SEARCH_MOVIES);
+  switch (action.type) {
+    case REDUCER_SEARCH_MOVIES.FETCHING:
+      return {
+        fetching: true,
+        data: [],
+        notifications: []
+      };
+    case REDUCER_SEARCH_MOVIES.FULFILLED:
+      let data = action.payload.results;
+      console.log(data);
+      return {
+        fetching: false,
+        data,
+        notifications: []
       };
     default:
       return state;

@@ -3,7 +3,7 @@ import {
   BASE_URL,
   POSTER_SIZES
 } from "../../store//reducers/reducer-constants";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import "./suggested-movies.css";
 import { useState } from "react";
 export default function SuggestedMoviesPresentation({
@@ -94,7 +94,6 @@ const FilterMoviesComponent = ({
           </p>
         </>
       )}
-      <SearchInput />
     </div>
   );
 };
@@ -111,24 +110,10 @@ const SuggestedMoviesGallery = ({ randomMovies }) => {
             alt="poster"
           />
           <h3 className="align-text">{movie.title}</h3>
-          <h3>{movie.Rating}</h3>
+          <h3 className="align-text">{movie.vote_average}</h3>
         </div>
       );
     });
 
   return <div className="flex">{randomMoviesJSX}</div>;
-};
-
-export const SearchInput = () => {
-  return (
-    <div className="search-icon-box">
-      <input
-        type="text"
-        placeholder="search movie...."
-        className="text-input"
-      />
-
-      <FontAwesomeIcon icon="search" className="search-icon" />
-    </div>
-  );
 };

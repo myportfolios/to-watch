@@ -1,29 +1,47 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { searchMovies } from "../../store/actions/moviesAction";
 
 import PropTypes from "prop-types";
 
 import SearchResultPresentation from "./SearchResultPresentation";
 
 export class SearchResultContainer extends Component {
-  render() {
-    const { listOfMovies } = this.props;
+  state = {
+    searchedMovie: ""
+  };
+  selectedMoviesHandler = (id, e) => {
+    console.log(id);
+  };
 
+  searchMovieHandler = e => {
+    this.setState({
+      searchedMovie: e.target.value
+    });
+    let keycode = e.which || e.keyCode;
+    keycode === 13 && this.props.searchMovies(this.state.searchedMovie);
+  };
+  render() {
+    const { searchResult } = this.props;
     return (
       <div>
-        <SearchResultPresentation listOfMovies={listOfMovies} />
+        <SearchResultPresentation
+          searchMovieHandler={this.searchMovieHandler}
+          searchResult={searchResult}
+          selectedMoviesHandler={this.selectedMoviesHandler}
+        />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  listOfMovies: state.movies.moviesData
+  searchResult: state.searchMovie.data
 });
 
 export default connect(
   mapStateToProps,
-  {}
+  { searchMovies }
 )(SearchResultContainer);
 
 // SearchResultContainer.propTypes = {
