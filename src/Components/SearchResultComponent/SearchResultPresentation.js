@@ -12,7 +12,7 @@ export const SearchResultPresentation = ({
       <h2 className="sub-heading align-center">Search Movies</h2>
       <p>
         Do you have a particular movie of interest in mind? That's ok. Type in
-        the name of the movie and select it from the list.
+        the title of the movie and select it from the list.
       </p>
       <SearchInput searchMovieHandler={searchMovieHandler} />
       <SearchResultTable
@@ -43,7 +43,6 @@ export const SearchInput = ({ searchMovieHandler }) => {
 };
 
 const SearchResultTable = ({ searchResult, selectedMoviesHandler }) => {
-  console.log(searchResult);
   const searchResultJSX =
     searchResult &&
     searchResult.map((movie, index) => {

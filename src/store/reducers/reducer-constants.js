@@ -23,6 +23,7 @@ export const ACTION_KEY_SEARCH_MOVIES = "search_movies";
 /**************************************************/
 
 export const ACTION_KEY_GET_NOMINATION_URL = "nomination_url";
+export const ACTION_KEY_GET_MOVIES_COLLECTION = "selected_movies";
 
 //CONFIGURATION API//
 export const BASE_URL = "http://image.tmdb.org/t/p/";

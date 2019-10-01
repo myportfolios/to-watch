@@ -5,7 +5,8 @@ import {
   ACTION_KEY_TOP_TRENDY_FILMS,
   ACTION_KEY_GET_OSCAR_NOMINATIONS,
   ACTION_KEY_GET_NOMINATION_URL,
-  ACTION_KEY_SEARCH_MOVIES
+  ACTION_KEY_SEARCH_MOVIES,
+  ACTION_KEY_GET_MOVIES_COLLECTION
 } from "../reducers/reducer-constants";
 
 export const suggestedMoviesReducer = (
@@ -51,7 +52,6 @@ export const suggestedMoviesReducer = (
       return state;
   }
 };
-// export default suggestedMoviesReducer;
 
 export const latestMoviesReducer = (
   state = {
@@ -196,12 +196,25 @@ export const searchMovieReducer = (
       };
     case REDUCER_SEARCH_MOVIES.FULFILLED:
       let data = action.payload.results;
-      console.log(data);
+
       return {
         fetching: false,
         data,
         notifications: []
       };
+    default:
+      return state;
+  }
+};
+
+export const getMoviesCollectionReducer = (
+  state = [],
+  action = { type: "", payload: "" }
+) => {
+  switch (action.type) {
+    case ACTION_KEY_GET_MOVIES_COLLECTION:
+      return [...state, action.payload];
+
     default:
       return state;
   }

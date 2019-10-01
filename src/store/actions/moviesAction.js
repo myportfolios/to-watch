@@ -4,7 +4,8 @@ import {
   ACTION_KEY_TOP_TRENDY_FILMS,
   ACTION_KEY_GET_OSCAR_NOMINATIONS,
   ACTION_KEY_GET_NOMINATION_URL,
-  ACTION_KEY_SEARCH_MOVIES
+  ACTION_KEY_SEARCH_MOVIES,
+  ACTION_KEY_GET_MOVIES_COLLECTION
 } from "../reducers/reducer-constants";
 // import moviesData from '../../utils/movies-mock-data';
 import { HTTP_METHODS, API_URL } from "../../services/constants";
@@ -44,9 +45,15 @@ export const saveNominationUrlToStore = nominationUrl => {
 
 export const searchMovies = title => dispatch => {
   let searchUrl = `${API_URL.SEARCH_MOVIES}${title}`;
-  console.log(searchUrl);
+
   return fetchCommon(searchUrl, {}, HTTP_METHODS.GET)(
     dispatch,
     ACTION_KEY_SEARCH_MOVIES
   );
+};
+export const getselectedMovies = selectedMovies => {
+  return {
+    type: ACTION_KEY_GET_MOVIES_COLLECTION,
+    payload: selectedMovies
+  };
 };

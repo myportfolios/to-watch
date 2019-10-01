@@ -5,7 +5,8 @@ import {
   getTrendyFilmsReducer,
   getOscarNominationsReducer,
   nominationUrlReducer,
-  searchMovieReducer
+  searchMovieReducer,
+  getMoviesCollectionReducer
 } from "./moviesReducer";
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
   trendyMovies: getTrendyFilmsReducer,
   oscarNominations: getOscarNominationsReducer,
   nominationUrl: nominationUrlReducer,
-  searchMovie: searchMovieReducer
+  searchMovie: searchMovieReducer,
+  movieCollection: getMoviesCollectionReducer
 });

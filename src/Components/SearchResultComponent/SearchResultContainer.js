@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { searchMovies } from "../../store/actions/moviesAction";
+import {
+  searchMovies,
+  getselectedMovies
+} from "../../store/actions/moviesAction";
 
 import PropTypes from "prop-types";
 
@@ -8,18 +11,33 @@ import SearchResultPresentation from "./SearchResultPresentation";
 
 export class SearchResultContainer extends Component {
   state = {
-    searchedMovie: ""
+    movieTitle: ""
   };
   selectedMoviesHandler = (id, e) => {
-    console.log(id);
+    let checked = e.target.checked;
+
+    let searchResultCopy = this.props.searchResult;
+
+    let selectedMovies =
+      searchResultCopy &&
+      searchResultCopy.filter(item => {
+        return item.id === id;
+      });
+
+    checked && this.props.getselectedMovies(selectedMovies);
   };
+  //To do: create an action and call it in selectedMoviesHandler()*****DONE/////////
+  ///The action will save the selected movies directly to the store*****DONE!///
+  ///The action will also delete the unchecked movies from the store////
 
   searchMovieHandler = e => {
     this.setState({
-      searchedMovie: e.target.value
+      movieTitle: e.target.value
     });
+    ///////////////check if "enter" was pressed on the keyboard/////////////////
     let keycode = e.which || e.keyCode;
-    keycode === 13 && this.props.searchMovies(this.state.searchedMovie);
+    /////make api call and pass in
+    keycode === 13 && this.props.searchMovies(this.state.movieTitle);
   };
   render() {
     const { searchResult } = this.props;
@@ -41,7 +59,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { searchMovies }
+  { searchMovies, getselectedMovies }
 )(SearchResultContainer);
 
 // SearchResultContainer.propTypes = {
