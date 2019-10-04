@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
   searchMovies,
-  getselectedMovies
+  getMoviesCollection
 } from "../../store/actions/moviesAction";
 
 import PropTypes from "prop-types";
@@ -11,21 +11,71 @@ import SearchResultPresentation from "./SearchResultPresentation";
 
 export class SearchResultContainer extends Component {
   state = {
-    movieTitle: ""
+    movieTitle: "",
+    selectedMovies: []
   };
+  //save all selected movies to store
+
+  moviesCollectionHandler = () => {
+    this.props.getMoviesCollection(this.state.selectedMovies);
+  };
+  // selectedMoviesHandler = (id, e) => {
+  //   let checked = e.target.checked;
+  //   console.log(checked);
+
+  //   let searchResultCopy = this.props.searchResult;
+
+  //   let selectedMovies =
+  //     checked &&
+  //     searchResultCopy.filter(movie => {
+  //       return movie.id === id;
+  //     });
+
+  //   this.setState({
+  //     selectedMovies: [...this.state.selectedMovies, selectedMovies]
+  //   });
+  //   !checked &&
+  //     this.setState({
+  //       selectedMovies: [
+  //         ...this.state.selectedMovies.filter(item => {
+  //           return item.id !== id;
+  //         })
+  //       ]
+  //     });
+  //   console.log(this.state.selectedMovies);
+  //   // checked && this.props.getMoviesCollection(selectedMovies);
+  // };
   selectedMoviesHandler = (id, e) => {
     let checked = e.target.checked;
+    console.log(checked);
 
     let searchResultCopy = this.props.searchResult;
+    let selectedMovies = searchResultCopy.filter(movie => {
+      console.log(id);
+      return movie.id === id;
+    });
 
-    let selectedMovies =
-      searchResultCopy &&
-      searchResultCopy.filter(item => {
-        return item.id === id;
+    if (!!checked) {
+      if (!this.state.selectedMovies.includes(selectedMovies)) {
+        this.setState({
+          selectedMovies: [selectedMovies, ...this.state.selectedMovies]
+        });
+      }
+    } else if (!checked) {
+      this.setState({
+        selectedMovies: this.state.selectedMovies.map(movie => {
+          console.log(movie);
+          return movie.filter(item => {
+            return item.id !== id;
+          });
+        })
       });
-
-    checked && this.props.getselectedMovies(selectedMovies);
+    }
+    console.log(this.state.selectedMovies);
+    // console.log(this.state.selectedMovies);
+    // checked && this.props.getMoviesCollection(selectedMovies);
   };
+
   //To do: create an action and call it in selectedMoviesHandler()*****DONE/////////
   ///The action will save the selected movies directly to the store*****DONE!///
   ///The action will also delete the unchecked movies from the store////
@@ -44,6 +94,7 @@ export class SearchResultContainer extends Component {
     return (
       <div>
         <SearchResultPresentation
+          moviesCollectionHandler={this.moviesCollectionHandler}
           searchMovieHandler={this.searchMovieHandler}
           searchResult={searchResult}
           selectedMoviesHandler={this.selectedMoviesHandler}
@@ -59,7 +110,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { searchMovies, getselectedMovies }
+  { searchMovies, getMoviesCollection }
 )(SearchResultContainer);
 
 // SearchResultContainer.propTypes = {

@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const SearchResultPresentation = ({
   searchMovieHandler,
   searchResult,
-  selectedMoviesHandler
+  selectedMoviesHandler,
+  moviesCollectionHandler
 }) => {
   return (
     <div>
@@ -16,6 +17,7 @@ export const SearchResultPresentation = ({
       </p>
       <SearchInput searchMovieHandler={searchMovieHandler} />
       <SearchResultTable
+        moviesCollectionHandler={moviesCollectionHandler}
         searchResult={searchResult}
         selectedMoviesHandler={selectedMoviesHandler}
       />
@@ -42,7 +44,11 @@ export const SearchInput = ({ searchMovieHandler }) => {
   );
 };
 
-const SearchResultTable = ({ searchResult, selectedMoviesHandler }) => {
+const SearchResultTable = ({
+  searchResult,
+  selectedMoviesHandler,
+  moviesCollectionHandler
+}) => {
   const searchResultJSX =
     searchResult &&
     searchResult.map((movie, index) => {
@@ -76,7 +82,11 @@ const SearchResultTable = ({ searchResult, selectedMoviesHandler }) => {
           </tr>
         </thead>
         <tbody>{searchResultJSX}</tbody>
-        {searchResult.length > 0 && <button>Add Selected to watch list</button>}
+        {searchResult.length > 0 && (
+          <button onClick={moviesCollectionHandler}>
+            Add Selected to watch list
+          </button>
+        )}
       </table>
     </div>
   );

@@ -51,7 +51,7 @@ export const searchMovies = title => dispatch => {
     ACTION_KEY_SEARCH_MOVIES
   );
 };
-export const getselectedMovies = selectedMovies => {
+export const getMoviesCollection = selectedMovies => {
   return {
     type: ACTION_KEY_GET_MOVIES_COLLECTION,
     payload: selectedMovies
