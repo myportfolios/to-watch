@@ -34,9 +34,10 @@ export const suggestedMoviesReducer = (
     // Fulfilled ----------------------------------------------------
 
     case REDUCER_GET_SELECTED_MOVIES.FULFILLED:
+      console.log(action.payload);
       return {
         ...state,
-        data: action.payload.items,
+        data: action.payload.results,
         fetching: false,
         error: []
       };

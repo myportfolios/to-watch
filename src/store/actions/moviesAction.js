@@ -12,7 +12,7 @@ import { HTTP_METHODS, API_URL } from "../../services/constants";
 import { fetchCommon } from "../../services/api";
 
 export const getSuggestedMovies = () => dispatch => {
-  return fetchCommon(API_URL.SUGGESTED_MOVIES, {}, HTTP_METHODS.GET)(
+  return fetchCommon(API_URL.DAILY_TRENDING_MOVIES, {}, HTTP_METHODS.GET)(
     dispatch,
     ACTION_KEY_GET_SELECTED_MOVIES
   );
