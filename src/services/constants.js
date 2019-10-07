@@ -17,8 +17,9 @@ export const API_URL = {
   DAILY_TRENDING_MOVIES:
     "https://api.themoviedb.org/3/trending/movie/day?api_key=2afb1d4ebd6b0b7548fc20dd30d0ac26",
   SEARCH_MOVIES:
-    "https://api.themoviedb.org/3/search/movie?include_adult=false&page=1&language=en-US&api_key=2afb1d4ebd6b0b7548fc20dd30d0ac26&query="
-
+    "https://api.themoviedb.org/3/search/movie?include_adult=false&page=1&language=en-US&api_key=2afb1d4ebd6b0b7548fc20dd30d0ac26&query=",
+  CINEMAS_MOVIES:
+    "https://api.themoviedb.org/3/movie/now_playing?page=1&language=en-US&api_key=2afb1d4ebd6b0b7548fc20dd30d0ac26"
   // ROMANCE: "",
   // ACTION: ""
 };

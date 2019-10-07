@@ -40,6 +40,7 @@ export const SearchInput = ({ searchMovieHandler }) => {
       />
 
       <FontAwesomeIcon icon="search" className="search-icon" />
+      {/* <FontAwesomeIcon icon="spinner" className="spinner-icon" /> */}
     </div>
   );
 };
@@ -69,25 +70,23 @@ const SearchResultTable = ({
       );
     });
   return (
-    <div>
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Synopsis</th>
-            <th scope="col">Year</th>
-            {/* <th scope="col">Actor</th> */}
-            <th scope="col">Rating</th>
-          </tr>
-        </thead>
-        <tbody>{searchResultJSX}</tbody>
-        {searchResult.length > 0 && (
-          <button onClick={moviesCollectionHandler}>
-            Add Selected to watch list
-          </button>
-        )}
-      </table>
-    </div>
+    <table className="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Synopsis</th>
+          <th scope="col">Year</th>
+          {/* <th scope="col">Actor</th> */}
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>{searchResultJSX}</tbody>
+      {searchResult.length > 0 && (
+        <button onClick={moviesCollectionHandler}>
+          Add Selected to watch list
+        </button>
+      )}
+    </table>
   );
 };

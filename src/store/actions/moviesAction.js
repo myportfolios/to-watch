@@ -5,7 +5,8 @@ import {
   ACTION_KEY_GET_OSCAR_NOMINATIONS,
   ACTION_KEY_GET_NOMINATION_URL,
   ACTION_KEY_SEARCH_MOVIES,
-  ACTION_KEY_GET_MOVIES_COLLECTION
+  ACTION_KEY_GET_MOVIES_COLLECTION,
+  ACTION_KEY_AT_THE_CINEMAS
 } from "../reducers/reducer-constants";
 // import moviesData from '../../utils/movies-mock-data';
 import { HTTP_METHODS, API_URL } from "../../services/constants";
@@ -56,4 +57,10 @@ export const getMoviesCollection = selectedMovies => {
     type: ACTION_KEY_GET_MOVIES_COLLECTION,
     payload: selectedMovies
   };
+};
+export const getCinemasMovies = () => dispatch => {
+  return fetchCommon(API_URL.CINEMAS_MOVIES, {}, HTTP_METHODS.GET)(
+    dispatch,
+    ACTION_KEY_AT_THE_CINEMAS
+  );
 };

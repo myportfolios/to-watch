@@ -1,0 +1,42 @@
+nav {
+  background-color: tomato;
+  display: flex;
+  justify-content: space-around;
+  min-height: 10vh;
+  width: 100vw;
+  padding: 0 5rem;
+  margin: 0 5rem;
+}
+nav ul li {
+  position: relative;
+  justify-content: space-around;
+  padding: 5px 15px;
+  margin: 15px 20px;
+
+  float: left;
+  list-style: none;
+}
+.sign-in-icon-box {
+  display: flex;
+  position: absolute;
+  top: 1.25rem;
+  left: 80%;
+  margin-left: 1rem;
+  margin-right: 2rem;
+  list-style: none;
+}
+nav img {
+  height: 2rem;
+  width: 2rem;
+}
+#text-icon-circle,
+#text-icon-plus {
+  display: flex;
+  padding-right: 1rem;
+}
+span .FontAwesomeIcon {
+  color: white;
+}
+.icons {
+  padding: 0 0.3rem;
+}

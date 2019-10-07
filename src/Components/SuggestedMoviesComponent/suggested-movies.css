@@ -14,3 +14,34 @@
 .float-left {
   float: left;
 }
+.movies-gallery {
+  position: relative;
+}
+.spinner-box {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+}
+.table,
+.align-center {
+  position: relative !important;
+  text-align: center;
+  width: 900px;
+  margin: 0 auto;
+}
+.suggested-movies-section {
+  position: relative !important;
+  text-align: center;
+  width: 1200px;
+  margin: 0 auto;
+}
+.videoPlaceholder {
+  width: 12.5rem;
+  height: 14.5rem;
+  border: 1px solid #eee;
+  box-shadow: 0 5px 10px black;
+  text-align: center;
+  padding: 0.9375rem;
+  margin: 0.9375rem;
+}

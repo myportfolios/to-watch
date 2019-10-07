@@ -7,10 +7,23 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
   faCheckSquare,
   faCoffee,
-  faSearch
+  faSearch,
+  faSpinner,
+  faCircleNotch,
+  faUserCircle,
+  faUserPlus
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, faCheckSquare, faCoffee, faSearch);
+library.add(
+  fab,
+  faCheckSquare,
+  faCoffee,
+  faSearch,
+  faSpinner,
+  faCircleNotch,
+  faUserCircle,
+  faUserPlus
+);
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

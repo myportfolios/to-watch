@@ -6,7 +6,8 @@ import {
   ACTION_KEY_GET_OSCAR_NOMINATIONS,
   ACTION_KEY_GET_NOMINATION_URL,
   ACTION_KEY_SEARCH_MOVIES,
-  ACTION_KEY_GET_MOVIES_COLLECTION
+  ACTION_KEY_GET_MOVIES_COLLECTION,
+  ACTION_KEY_AT_THE_CINEMAS
 } from "../reducers/reducer-constants";
 
 export const suggestedMoviesReducer = (
@@ -34,7 +35,6 @@ export const suggestedMoviesReducer = (
     // Fulfilled ----------------------------------------------------
 
     case REDUCER_GET_SELECTED_MOVIES.FULFILLED:
-      console.log(action.payload);
       return {
         ...state,
         data: action.payload.results,
@@ -216,6 +216,37 @@ export const getMoviesCollectionReducer = (
     case ACTION_KEY_GET_MOVIES_COLLECTION:
       return [...state, action.payload];
 
+    default:
+      return state;
+  }
+};
+
+export const getCinemaMoviesReducer = (
+  state = { fetching: true, data: [], notifications: [] },
+  action = { type: "", payload: "" }
+) => {
+  const REDUCER_CINEMAS = getActionTypes(ACTION_KEY_AT_THE_CINEMAS);
+  switch (action.type) {
+    case REDUCER_CINEMAS.FETCHING:
+      return {
+        fetching: true,
+        data: [],
+        notifications: []
+      };
+    case REDUCER_CINEMAS.FULFILLED:
+      const data = action.payload.results;
+
+      return {
+        fetching: false,
+        data,
+        notifications: []
+      };
+    case REDUCER_CINEMAS.REJECTED:
+      return {
+        fetching: false,
+        data: [],
+        notifications: []
+      };
     default:
       return state;
   }

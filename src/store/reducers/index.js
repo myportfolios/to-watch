@@ -6,7 +6,8 @@ import {
   getOscarNominationsReducer,
   nominationUrlReducer,
   searchMovieReducer,
-  getMoviesCollectionReducer
+  getMoviesCollectionReducer,
+  getCinemaMoviesReducer
 } from "./moviesReducer";
 
 export default combineReducers({
@@ -16,5 +17,6 @@ export default combineReducers({
   oscarNominations: getOscarNominationsReducer,
   nominationUrl: nominationUrlReducer,
   searchMovie: searchMovieReducer,
-  movieCollection: getMoviesCollectionReducer
+  movieCollection: getMoviesCollectionReducer,
+  atTheCinemas: getCinemaMoviesReducer
 });

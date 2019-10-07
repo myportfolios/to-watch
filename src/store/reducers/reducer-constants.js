@@ -17,6 +17,7 @@ export const ACTION_KEY_TOP_TRENDY_FILMS = "get_top_trendy_films";
 export const ACTION_KEY_ACTION_FOUR = "get_action_four";
 export const ACTION_KEY_GET_OSCAR_NOMINATIONS = "get_oscar_nominations";
 export const ACTION_KEY_SEARCH_MOVIES = "search_movies";
+export const ACTION_KEY_AT_THE_CINEMAS = "at_the_cinemas";
 
 /**************************************************/
 /*User  related actions*/
