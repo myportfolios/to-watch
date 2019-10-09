@@ -16,6 +16,7 @@
 }
 .movies-gallery {
   position: relative;
+  margin-left: 3rem;
 }
 .spinner-box {
   position: absolute;
@@ -44,4 +45,7 @@
   text-align: center;
   padding: 0.9375rem;
   margin: 0.9375rem;
+}
+.filter-movies-component {
+  margin-right: 2rem;
 }

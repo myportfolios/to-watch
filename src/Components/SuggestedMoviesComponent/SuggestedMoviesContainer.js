@@ -12,7 +12,7 @@ import { OSCARS, OSCAR_API_URLS } from "../../services/constants";
 
 import { connect } from "react-redux";
 
-class SuggestedMoviesContainer extends Component {
+export class SuggestedMoviesContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -47,7 +47,7 @@ class SuggestedMoviesContainer extends Component {
       if (!!this.state.isAtTheCinemas) {
         this.updateRandomMovieList(this.props.atTheCinemas);
       }
-    }, 8000);
+    }, 10000);
   }
   //make api calls when list of videos get to the last set
   async componentDidUpdate(prevProp, prevState) {

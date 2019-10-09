@@ -22,7 +22,7 @@ export default function SuggestedMoviesPresentation({
     <>
       <div className="row suggested-movies-section">
         <FilterMoviesComponent
-          className="col-lg-4"
+          className="col-lg-4 "
           trendyMoviesHandler={trendyMoviesHandler}
           oscarsMoviesHandler={oscarsMoviesHandler}
           showOscars={showOscars}
@@ -63,10 +63,10 @@ const FilterMoviesComponent = ({
   atTheCinemasHandler
 }) => {
   return (
-    <div className="float-left">
+    <div className="float-left filter-movies-component">
       <span>Filter</span>
 
-      <p onClick={trendyMoviesHandler}>2019 Top Trendy Movies</p>
+      <p onClick={trendyMoviesHandler}>Top Trendy Movies</p>
 
       <p onClick={() => setShowOscars(!showOscars)}>Oscars</p>
       {showOscars ? (
