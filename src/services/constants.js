@@ -11,7 +11,7 @@ export const TOWACTH_URLS = {
 /**************************************************/
 export const API_URL = {
   SUGGESTED_MOVIES:
-    "https://api.themoviedb.org/3/list/28?language=en-US&api_key=2afb1d4ebd6b0b7548fc20dd30d0ac26",
+    "https://api.themoviedb.org/3/trending/movie/day?api_key=2afb1d4ebd6b0b7548fc20dd30d0ac26",
   LATEST_MOVIES:
     "https://api.themoviedb.org/3/trending/movie/week?api_key=2afb1d4ebd6b0b7548fc20dd30d0ac26",
   DAILY_TRENDING_MOVIES:

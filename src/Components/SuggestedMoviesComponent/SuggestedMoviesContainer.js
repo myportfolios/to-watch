@@ -28,15 +28,15 @@ export class SuggestedMoviesContainer extends Component {
   async componentDidMount() {
     //make initial call to load data in gallery
     this.setState({
-      isLatestMoviesCalled: true
+      isTrendyMoviesCalled: true
     });
-    await this.props.getLatestMovies();
+    await this.props.getTrendyFilms();
     //reload the gallery every 8 seconds by recalling the most recent action creator
     setInterval(() => {
-      if (!!this.state.isLatestMoviesCalled) {
-        this.updateRandomMovieList(this.props.latestMovies);
-        return;
-      }
+      // if (!!this.state.isLatestMoviesCalled) {
+      //   this.updateRandomMovieList(this.props.latestMovies);
+      //   return;
+      // }
       if (!!this.state.isTrendyMoviesCalled) {
         this.updateRandomMovieList(this.props.trendyMovies);
         return;

@@ -103,15 +103,7 @@ const FilterMoviesComponent = ({
       ) : (
         <>
           <p onClick={atTheCinemasHandler}>At the Cinemas</p>
-          <p>
-            <a href="#">Espionages</a>
-          </p>
-          <p>
-            <a href="#">Romance</a>
-          </p>
-          <p>
-            <a href="#">Action</a>
-          </p>
+          <p onClick={"#"}>Latest Movies</p>
         </>
       )}
     </div>
