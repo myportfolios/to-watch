@@ -28,7 +28,7 @@
 .align-center {
   position: relative !important;
   text-align: center;
-  width: 900px;
+  width: 1000px;
   margin: 0 auto;
 }
 .suggested-movies-section {
@@ -36,6 +36,8 @@
   text-align: center;
   width: 1200px;
   margin: 0 auto;
+  min-height: fit-content;
+  border-top: 1px solid #ff6347;
 }
 .videoPlaceholder {
   width: 12.5rem;
@@ -48,4 +50,40 @@
 }
 .filter-movies-component {
   margin-right: 2rem;
+  float: left;
+  /* padding: 0 1rem; */
+  padding-top: 1rem;
+  text-align: justify;
+  /* border: 1px solid green; */
+}
+.menu-items {
+  border: 1px solid #ff6347;
+  width: 100%;
+  margin-bottom: 0 !important;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+.active-link-bg {
+  background: #ff8069;
+  border: 1px solid #ff6347;
+  cursor: pointer;
+  padding: 1.5rem;
+  margin-bottom: 0 !important;
+}
+.active-link-submenu-bg {
+  background: #ff9d8b;
+  border: 1px solid #ff6347;
+  cursor: pointer;
+  padding: 0.6rem;
+  margin-bottom: 0 !important;
+}
+td,
+tr {
+  border: 1px solid black;
+}
+#checklist {
+  margin: 1.5rem;
+}
+.movie-title-style {
+  color: #ff6347;
 }

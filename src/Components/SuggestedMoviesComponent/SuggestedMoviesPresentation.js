@@ -12,12 +12,19 @@ export default function SuggestedMoviesPresentation({
   fetching,
   randomMovies,
   trendyMoviesHandler,
+  latestMoviesHandlers,
   isLatestMoviesCalled,
   isTrendyMoviesCalled,
+  isOscarMovies2012Called,
   oscarsMoviesHandler,
-  atTheCinemasHandler
+  atTheCinemasHandler,
+  isAtTheCinemas
 }) {
   const [showOscars, setShowOscars] = useState(false);
+  const [oscars_2009, setOscars_2009] = useState(false);
+  const [oscars_2010, setOscars_2010] = useState(false);
+  const [oscars_2011, setOscars_2011] = useState(false);
+  const [oscars_2012, setOscars_2012] = useState(false);
   return (
     <>
       <div className="row suggested-movies-section">
@@ -28,6 +35,19 @@ export default function SuggestedMoviesPresentation({
           showOscars={showOscars}
           setShowOscars={setShowOscars}
           atTheCinemasHandler={atTheCinemasHandler}
+          latestMoviesHandlers={latestMoviesHandlers}
+          isLatestMoviesCalled={isLatestMoviesCalled}
+          isTrendyMoviesCalled={isTrendyMoviesCalled}
+          isOscarMovies2012Called={isOscarMovies2012Called}
+          isAtTheCinemas={isAtTheCinemas}
+          oscars_2009={oscars_2009}
+          oscars_2010={oscars_2010}
+          oscars_2011={oscars_2011}
+          oscars_2012={oscars_2012}
+          setOscars_2009={setOscars_2009}
+          setOscars_2010={setOscars_2010}
+          setOscars_2011={setOscars_2011}
+          setOscars_2012={setOscars_2012}
         />
         {!randomMovies.length && (
           <div className="spinner-box">
@@ -60,41 +80,111 @@ const FilterMoviesComponent = ({
   oscarsMoviesHandler,
   showOscars,
   setShowOscars,
-  atTheCinemasHandler
+  atTheCinemasHandler,
+  latestMoviesHandlers,
+  isLatestMoviesCalled,
+  isTrendyMoviesCalled,
+  isOscarMovies2012Called,
+  isAtTheCinemas,
+  oscars_2012,
+  setOscars_2012,
+  oscars_2011,
+  setOscars_2011,
+  oscars_2010,
+  setOscars_2010,
+  oscars_2009,
+  setOscars_2009
 }) => {
+  // console.log(isAtTheCinemas);
   return (
     <div className="float-left filter-movies-component">
-      <span>Filter</span>
+      {/* <span>Filter</span> */}
 
-      <p onClick={trendyMoviesHandler}>Top Trendy Movies</p>
+      <p
+        // className={isTrendyMoviesCalled ? "active-link-bg" : "menu-items"}
+        className={(isTrendyMoviesCalled && "active-link-bg") || "menu-items"}
+        onClick={() => {
+          trendyMoviesHandler();
+          setOscars_2012(false);
+          setOscars_2011(false);
+          setOscars_2010(false);
+          setOscars_2009(false);
+          setShowOscars(false);
+        }}
+      >
+        Top Trendy Movies
+      </p>
 
-      <p onClick={() => setShowOscars(!showOscars)}>Oscars</p>
+      <p className="menu-items" onClick={() => setShowOscars(!showOscars)}>
+        Oscars
+      </p>
       {showOscars ? (
         <>
-          <p
+          {/* <p
+            className={
+              (isOscarMovies2012Called && "active-link-bg") || "menu-items"
+            }
             onClick={nomination => {
               oscarsMoviesHandler(nomination);
+            }}
+          > */}
+          <p
+            className={
+              (isOscarMovies2012Called &&
+                oscars_2012 &&
+                "active-link-submenu-bg") ||
+              "menu-items"
+            }
+            onClick={nomination => {
+              oscarsMoviesHandler(nomination);
+              setOscars_2012(true);
+              setOscars_2011(false);
+              setOscars_2010(false);
+              setOscars_2009(false);
             }}
           >
             2012 Oscar Nominations
           </p>
           <p
+            className={
+              (oscars_2011 && "active-link-submenu-bg") || "menu-items"
+            }
             onClick={nomination => {
               oscarsMoviesHandler(nomination);
+              setOscars_2012(false);
+              setOscars_2011(true);
+              setOscars_2010(false);
+              setOscars_2009(false);
             }}
           >
             2011 Oscar Nominations
           </p>
           <p
+            className={
+              (oscars_2010 && setOscars_2010 && "active-link-submenu-bg") ||
+              "menu-items"
+            }
             onClick={nomination => {
               oscarsMoviesHandler(nomination);
+              setOscars_2012(false);
+              setOscars_2011(false);
+              setOscars_2010(true);
+              setOscars_2009(false);
             }}
           >
             2010 Oscar Nominations
           </p>
           <p
+            className={
+              (oscars_2009 && setOscars_2009 && "active-link-submenu-bg") ||
+              "menu-items"
+            }
             onClick={nomination => {
               oscarsMoviesHandler(nomination);
+              setOscars_2012(false);
+              setOscars_2011(false);
+              setOscars_2010(false);
+              setOscars_2009(true);
             }}
           >
             2009 Oscar Nominations
@@ -102,37 +192,25 @@ const FilterMoviesComponent = ({
         </>
       ) : (
         <>
-          <p onClick={atTheCinemasHandler}>At the Cinemas</p>
-          <p onClick={"#"}>Latest Movies</p>
+          <p
+            className={(isAtTheCinemas && "active-link-bg") || "menu-items"}
+            onClick={atTheCinemasHandler}
+          >
+            At the Cinemas
+          </p>
+          <p
+            className={
+              (isLatestMoviesCalled && "active-link-bg") || "menu-items"
+            }
+            onClick={latestMoviesHandlers}
+          >
+            Latest Movies
+          </p>
         </>
       )}
     </div>
   );
 };
-
-// const SuggestedMoviesGallery = ({ randomMovies, fetching }) => {
-//   let randomMoviesJSX =
-//     randomMovies &&
-//     randomMovies.map(movie => {
-//       return !fetching ? (
-//         <div className="spinner-box">
-//           <FontAwesomeIcon icon="circle-notch" className="spinner-icon" />
-//         </div>
-//       ) : (
-//         <div key={movie.title}>
-//           <img
-//             className="img_size"
-//             src={`${BASE_URL}${POSTER_SIZES}${movie.poster_path}`}
-//             alt="poster"
-//           />
-//           <h3 className="align-text">{movie.title}</h3>
-//           <h3 className="align-text">{movie.vote_average}</h3>
-//         </div>
-//       );
-//     });
-
-//   return <div className="flex">{randomMoviesJSX}</div>;
-// };
 
 const SuggestedMoviesGallery = ({ randomMovies }) => {
   let randomMoviesJSX =
@@ -161,7 +239,7 @@ const ListOfMovies = ({ randomMovies }) => {
       return (
         <tr>
           <td>{index}</td>
-          <td>{movie.title}</td>
+          <td className="movie-title-style">{movie.title}</td>
           <td>{movie.overview}</td>
           <td>{movie.vote_count}</td>
           <td>{movie.release_date}</td>

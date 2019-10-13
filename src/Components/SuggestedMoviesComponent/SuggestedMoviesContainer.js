@@ -23,7 +23,6 @@ export class SuggestedMoviesContainer extends Component {
       isAtTheCinemas: false
     };
   }
-  //To do...store "nomination" to redux store and pass it in the componentDidUpdate
 
   async componentDidMount() {
     //make initial call to load data in gallery
@@ -33,30 +32,31 @@ export class SuggestedMoviesContainer extends Component {
     await this.props.getTrendyFilms();
     //reload the gallery every 8 seconds by recalling the most recent action creator
     setInterval(() => {
-      // if (!!this.state.isLatestMoviesCalled) {
-      //   this.updateRandomMovieList(this.props.latestMovies);
-      //   return;
-      // }
-      if (!!this.state.isTrendyMoviesCalled) {
+      console.log(this.props.latestMovies.length);
+      if (
+        this.state.isTrendyMoviesCalled &&
+        this.props.trendyMovies.length > 4
+      ) {
         this.updateRandomMovieList(this.props.trendyMovies);
         return;
       }
-      if (!!this.state.isOscarMovies2012Called) {
+      if (this.state.isOscarMovies2012Called && this.props.oscars.length > 4) {
         this.updateRandomMovieList(this.props.oscars);
       }
-      if (!!this.state.isAtTheCinemas) {
+      if (this.state.isAtTheCinemas && this.props.atTheCinemas.length > 4) {
         this.updateRandomMovieList(this.props.atTheCinemas);
+      }
+      if (
+        this.state.isLatestMoviesCalled &&
+        this.props.latestMovies.length > 4
+      ) {
+        this.updateRandomMovieList(this.props.latestMovies);
+        return;
       }
     }, 10000);
   }
   //make api calls when list of videos get to the last set
-  async componentDidUpdate(prevProp, prevState) {
-    // console.log(prevProp.isAtTheCinemas && prevProp.isAtTheCinemas.length);
-    console.log(prevProp);
-    if (prevProp.latestMovies.length === 4) {
-      this.props.getLatestMovies();
-      return;
-    }
+  async componentDidUpdate(prevProp) {
     if (prevProp.trendyMovies.length === 4) {
       this.props.getTrendyFilms();
     }
@@ -66,6 +66,10 @@ export class SuggestedMoviesContainer extends Component {
     }
     if (prevProp.atTheCinemas.length === 4) {
       this.props.getCinemasMovies();
+      return;
+    }
+    if (prevProp.latestMovies.length === 1) {
+      this.props.getLatestMovies();
       return;
     }
   }
@@ -95,28 +99,6 @@ export class SuggestedMoviesContainer extends Component {
     //pass the response data into the sorting function
     await this.updateRandomMovieList(this.props.trendyMovies);
   };
-  //Oscar Movies Handler//
-  // oscarsMoviesHandler = nomination => {
-  //   // this.setState({ isOscarMovies2012Called: true });
-  //   let nominationUrl = "";
-  //   switch (nomination) {
-  //     case nomination.target.textContent === OSCARS.NOMINATIONS_2012:
-  //       nominationUrl = OSCAR_API_URLS.OSCAR_2012;
-  //       break;
-  //     case nomination.target.textContent === OSCARS.NOMINATIONS_2011:
-  //       nominationUrl = OSCAR_API_URLS.OSCAR_2011;
-  //       break;
-  //     case nomination.target.textContent === OSCARS.NOMINATIONS_2010:
-  //       nominationUrl = OSCAR_API_URLS.OSCAR_2010;
-  //       break;
-  //     case nomination.target.textContent === OSCARS.NOMINATIONS_2009:
-  //       nominationUrl = OSCAR_API_URLS.OCSAR_2009;
-  //       break;
-  //     default:
-  //       nominationUrl = "";
-  //   }
-  //   this.props.getOscarNominations(nominationUrl);
-  // };
 
   oscarsMoviesHandler = async nomination => {
     this.setState({
@@ -142,6 +124,7 @@ export class SuggestedMoviesContainer extends Component {
     await this.props.getOscarNominations(nominationUrl);
 
     await this.props.saveNominationUrlToStore(nominationUrl);
+    await this.updateRandomMovieList(this.props.oscars);
   };
   atTheCinemasHandler = async () => {
     //Make api call
@@ -152,10 +135,27 @@ export class SuggestedMoviesContainer extends Component {
       isTrendyMoviesCalled: false
     });
     await this.props.getCinemasMovies();
+    await this.updateRandomMovieList(this.props.atTheCinemas);
+  };
+  latestMoviesHandlers = async () => {
+    this.setState({
+      isAtTheCinemas: false,
+      isLatestMoviesCalled: true,
+      isOscarMovies2012Called: false,
+      isTrendyMoviesCalled: false
+    });
+    await this.props.getLatestMovies();
+    await this.updateRandomMovieList(this.props.latestMovies);
   };
   render() {
-    const { randomMovies, latestMovies } = this.state;
-    const { fetching, atTheCinemas } = this.props;
+    const {
+      randomMovies,
+      isLatestMoviesCalled,
+      isTrendyMoviesCalled,
+      isAtTheCinemas,
+      isOscarMovies2012Called
+    } = this.state;
+    const { fetching, atTheCinemas, latestMovies } = this.props;
 
     return (
       <div>
@@ -166,8 +166,11 @@ export class SuggestedMoviesContainer extends Component {
           fetching={fetching}
           randomMovies={randomMovies}
           trendyMoviesHandler={this.trendyMoviesHandler}
-          isLatestMoviesCalled={this.state.isLatestMoviesCalled}
-          isTrendyMoviesCalled={this.state.isTrendyMoviesCalled}
+          latestMoviesHandlers={this.latestMoviesHandlers}
+          isLatestMoviesCalled={isLatestMoviesCalled}
+          isTrendyMoviesCalled={isTrendyMoviesCalled}
+          isAtTheCinemas={isAtTheCinemas}
+          isOscarMovies2012Called={isOscarMovies2012Called}
           oscarsMoviesHandler={this.oscarsMoviesHandler}
         />
       </div>

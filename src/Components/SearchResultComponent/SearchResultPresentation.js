@@ -40,7 +40,6 @@ export const SearchInput = ({ searchMovieHandler }) => {
       />
 
       <FontAwesomeIcon icon="search" className="search-icon" />
-      {/* <FontAwesomeIcon icon="spinner" className="spinner-icon" /> */}
     </div>
   );
 };
@@ -57,11 +56,12 @@ const SearchResultTable = ({
         <>
           <tr>
             <td>{index + 1}</td>
-            <td>{movie.title}</td>
+            <td className="movie-title-style">{movie.title}</td>
             <td>{movie.overview}</td>
             <td>{movie.release_date}</td>
             <td>{movie.vote_average}</td>
             <input
+              id="checklist"
               type="checkbox"
               onClick={selectedMoviesHandler.bind(this, movie.id)}
             />
@@ -83,8 +83,8 @@ const SearchResultTable = ({
       </thead>
       <tbody>{searchResultJSX}</tbody>
       {searchResult.length > 0 && (
-        <button onClick={moviesCollectionHandler}>
-          Add Selected to watch list
+        <button className="add-movies-btn" onClick={moviesCollectionHandler}>
+          Add selected movies to watchlist
         </button>
       )}
     </table>

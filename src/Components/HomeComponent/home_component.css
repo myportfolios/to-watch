@@ -14,27 +14,30 @@
   border: 5px dashed red;
   padding: 0.9375rem;
   margin: 0 auto;
-  margin-top: 	1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 3rem;
 }
 
 .title {
   text-align: center;
   width: 100%;
 }
-.flex{
-  display:flex;
+.flex {
+  display: flex;
 }
-.watch-text{
+.watch-text {
   text-transform: uppercase;
   font-style: italic;
   color: blue;
   font-size: 4rem;
 }
-.two-text{
-font-size: 3rem;
-color: red;
+.two-text {
+  font-size: 3rem;
+  color: red;
+  padding: 2rem 0;
 }
-.para-heading{
+.para-heading {
   margin: 0 1.25rem;
-  text-align: center;
+  text-align: justify;
+  padding-bottom: 1.5rem;
 }

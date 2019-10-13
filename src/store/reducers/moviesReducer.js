@@ -77,9 +77,15 @@ export const latestMoviesReducer = (
 
     // Fulfilled ----------------------------------------------------
     case REDUCER_GET_LATEST_MOVIES.FULFILLED: {
+      //convert the object response into an array of objects
+      let res = action.payload;
+      // let dataArray = Object.keys(res).map(item => {
+      //   return res[item];
+      // });
+      console.log(res);
       return {
         // ...state,
-        data: action.payload.results,
+        data: [res],
         fetching: false,
         error: []
       };

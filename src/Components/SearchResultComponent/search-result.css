@@ -35,9 +35,24 @@
   margin: 0 auto;
 }
 
-button {
-  background-color: red;
+.add-movies-btn {
   position: absolute;
+  display: flex;
+  text-align: center;
+  padding: 15px 45px;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-radius: 90px;
+  background: transparent;
+  border: 5px solid #ff8069;
+  box-shadow: 4px 4px 5px #eeeeee;
+}
+.add-movies-btn:hover {
+  background: #ff6347;
+  color: white;
+  box-shadow: 4px 4px 5px #9e756b;
+  border: 2px solid white;
+  transition: ease-out;
 }
