@@ -31,7 +31,7 @@ export const SearchInput = ({ searchMovieHandler }) => {
   return (
     <div className="search-icon-box">
       <input
-        onKeyPress={e => {
+        onKeyDown={e => {
           searchMovieHandler(e);
         }}
         type="text"

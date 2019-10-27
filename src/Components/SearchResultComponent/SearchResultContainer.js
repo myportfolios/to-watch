@@ -88,6 +88,8 @@ export class SearchResultContainer extends Component {
     let keycode = e.which || e.keyCode;
     /////make api call and pass in
     keycode === 13 && this.props.searchMovies(this.state.movieTitle);
+    //if 'backspace' or 'delete' is pressed clear the list result
+    keycode === 8 && this.props.searchMovies("");
   };
   render() {
     const { searchResult } = this.props;

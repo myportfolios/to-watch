@@ -12,7 +12,7 @@ configure({ adapter: new Adapter() });
 
 describe("HomeComponentContainer", () => {
   let props = {
-    getSugggetTrendyFilmsestedMovies: jest.fn()
+    getSuggestedMovies: jest.fn()
   };
 
   let wrapper = shallow(<HomeComponentContainer {...props} />);

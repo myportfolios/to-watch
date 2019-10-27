@@ -1,9 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 
 import HomeComponentPresentation from "../HomeComponentPresentation";
 import { MovieAndTitleComponent } from "../HomeComponentPresentation";

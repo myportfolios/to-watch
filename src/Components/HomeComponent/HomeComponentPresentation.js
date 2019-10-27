@@ -33,16 +33,6 @@ const HomeComponentPresentation = ({ movies }) => {
 export default HomeComponentPresentation;
 
 export const MovieAndTitleComponent = ({ movies }) => {
-  //   let moviesJSX = movies && movies.map((movie) => {
-  //      return (
-  //     <div key={movie.Title}>
-  //       <img className="img-thumbnail videoPlaceholder" alt="poster" src={movie.poster_path} />
-  //       <div className="title">{movie.title}</div>
-  //     </div>
-  //   )
-
-  // })
-
   let size = 4;
   let moviesJSX =
     movies &&
