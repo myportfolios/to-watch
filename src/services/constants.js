@@ -58,3 +58,21 @@ export const OSCARS = {
   NOMINATIONS_2010: "2010 Oscar Nominations",
   NOMINATIONS_2009: "2009 Oscar Nominations"
 };
+/************************************************************/
+/* OAuth Client ID and Scopes */
+/************************************************************/
+export const CLIENT_ID = {
+  ID: "120961641464-klc7t7g72f8c8ge75srcsjt8eeg6dr6c.apps.googleusercontent.com"
+};
+export const SCOPES = {
+  EMAIL: "email"
+};
+
+/************************************************************/
+/* Button Authentication*/
+/************************************************************/
+export const BTN_TEXT_STATUS = {
+  GOOGLE_AUTH: "Google Auth",
+  SIGN_IN: "Sign In",
+  SIGN_OUT: "Sign Out"
+};

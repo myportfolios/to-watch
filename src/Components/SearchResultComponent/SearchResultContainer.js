@@ -47,11 +47,9 @@ export class SearchResultContainer extends Component {
   // };
   selectedMoviesHandler = (id, e) => {
     let checked = e.target.checked;
-    console.log(checked);
 
     let searchResultCopy = this.props.searchResult;
     let selectedMovies = searchResultCopy.filter(movie => {
-      console.log(id);
       return movie.id === id;
     });
 
@@ -64,14 +62,13 @@ export class SearchResultContainer extends Component {
     } else if (!checked) {
       this.setState({
         selectedMovies: this.state.selectedMovies.map(movie => {
-          console.log(movie);
           return movie.filter(item => {
             return item.id !== id;
           });
         })
       });
     }
-    console.log(this.state.selectedMovies);
+
     // console.log(this.state.selectedMovies);
     // checked && this.props.getMoviesCollection(selectedMovies);
   };

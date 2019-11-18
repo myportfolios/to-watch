@@ -16,11 +16,20 @@ describe("HomeComponentPresentation", () => {
 });
 
 describe("MovieAndTitleComponent", () => {
-  const wrapperMovieAndTitleComponent = shallow(<MovieAndTitleComponent />);
+  const props = {
+    movies: [
+      {
+        title: "Unit Testing"
+      }
+    ]
+  };
+  const wrapperMovieAndTitleComponent = shallow(
+    <MovieAndTitleComponent {...props} />
+  );
   it("renders correctly", () => {
     expect(wrapperMovieAndTitleComponent).toMatchSnapshot();
   });
   it("returns a list of images when page renders", () => {
-    expect(wrapperMovieAndTitleComponent.children().length).toEqual(0);
+    expect(wrapperMovieAndTitleComponent.children().length).toEqual(1);
   });
 });

@@ -82,7 +82,7 @@ export const latestMoviesReducer = (
       // let dataArray = Object.keys(res).map(item => {
       //   return res[item];
       // });
-      console.log(res);
+
       return {
         // ...state,
         data: [res],

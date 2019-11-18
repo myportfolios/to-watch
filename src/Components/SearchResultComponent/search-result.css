@@ -1,6 +1,7 @@
 .sub-heading {
   padding: 0.9375rem 0rem;
   text-transform: uppercase;
+  padding: 2rem 0;
 }
 .search-icon-box {
   position: relative;
@@ -8,9 +9,10 @@
   transform: translate(-50%, -50%);
   border: 1px solid rgb(0, 132, 255);
   border-radius: 20px;
-  width: 250px;
+  width: 500px;
+  margin-bottom: 2rem;
 }
-.search-icon {
+.search-icon .add-padding {
   position: absolute;
   top: 8px;
   right: 10px;
@@ -20,6 +22,7 @@
   margin-left: 25px !important;
   border-style: none !important;
   outline: none !important;
+  width: 90%;
 }
 .text-input:focus {
   border: none !important;
@@ -55,4 +58,8 @@
   box-shadow: 4px 4px 5px #9e756b;
   border: 2px solid white;
   transition: ease-out;
+}
+
+.add-padding {
+  padding: 1rem 0;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import "./search-result.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const SearchResultPresentation = ({
+const SearchResultPresentation = ({
   searchMovieHandler,
   searchResult,
   selectedMoviesHandler,
@@ -11,16 +11,19 @@ export const SearchResultPresentation = ({
   return (
     <div>
       <h2 className="sub-heading align-center">Search Movies</h2>
-      <p>
+      <p className="add-padding">
         Do you have a particular movie of interest in mind? That's ok. Type in
         the title of the movie and select it from the list.
       </p>
       <SearchInput searchMovieHandler={searchMovieHandler} />
-      <SearchResultTable
-        moviesCollectionHandler={moviesCollectionHandler}
-        searchResult={searchResult}
-        selectedMoviesHandler={selectedMoviesHandler}
-      />
+
+      {!!searchResult.length ? (
+        <SearchResultTable
+          moviesCollectionHandler={moviesCollectionHandler}
+          searchResult={searchResult}
+          selectedMoviesHandler={selectedMoviesHandler}
+        />
+      ) : null}
     </div>
   );
 };
@@ -44,7 +47,7 @@ export const SearchInput = ({ searchMovieHandler }) => {
   );
 };
 
-const SearchResultTable = ({
+export const SearchResultTable = ({
   searchResult,
   selectedMoviesHandler,
   moviesCollectionHandler

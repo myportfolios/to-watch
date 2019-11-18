@@ -75,7 +75,7 @@ export default function SuggestedMoviesPresentation({
   );
 }
 
-const FilterMoviesComponent = ({
+export const FilterMoviesComponent = ({
   trendyMoviesHandler,
   oscarsMoviesHandler,
   showOscars,
@@ -95,13 +95,9 @@ const FilterMoviesComponent = ({
   oscars_2009,
   setOscars_2009
 }) => {
-  // console.log(isAtTheCinemas);
   return (
     <div className="float-left filter-movies-component">
-      {/* <span>Filter</span> */}
-
       <p
-        // className={isTrendyMoviesCalled ? "active-link-bg" : "menu-items"}
         className={(isTrendyMoviesCalled && "active-link-bg") || "menu-items"}
         onClick={() => {
           trendyMoviesHandler();
@@ -212,7 +208,7 @@ const FilterMoviesComponent = ({
   );
 };
 
-const SuggestedMoviesGallery = ({ randomMovies }) => {
+export const SuggestedMoviesGallery = ({ randomMovies }) => {
   let randomMoviesJSX =
     randomMovies &&
     randomMovies.map(movie => {
@@ -237,7 +233,7 @@ const ListOfMovies = ({ randomMovies }) => {
     randomMovies &&
     randomMovies.map((movie, index) => {
       return (
-        <tr>
+        <tr key={index}>
           <td>{index}</td>
           <td className="movie-title-style">{movie.title}</td>
           <td>{movie.overview}</td>
@@ -247,15 +243,19 @@ const ListOfMovies = ({ randomMovies }) => {
       );
     });
   return (
-    <table className="table">
-      <thead>
-        <th>#</th>
-        <th>Title</th>
-        <th>Synopsis</th>
-        <th>Votes</th>
-        <th>Release Date</th>
-      </thead>
-      <tbody>{movieList}</tbody>
-    </table>
+    !!randomMovies.length && (
+      <table className="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Synopsis</th>
+            <th>Votes</th>
+            <th>Release Date</th>
+          </tr>
+        </thead>
+        <tbody>{movieList}</tbody>
+      </table>
+    )
   );
 };

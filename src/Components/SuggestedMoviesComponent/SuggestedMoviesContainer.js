@@ -32,7 +32,6 @@ export class SuggestedMoviesContainer extends Component {
     await this.props.getTrendyFilms();
     //reload the gallery every 8 seconds by recalling the most recent action creator
     setInterval(() => {
-      console.log(this.props.latestMovies.length);
       if (
         this.state.isTrendyMoviesCalled &&
         this.props.trendyMovies.length > 4

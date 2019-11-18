@@ -4,7 +4,7 @@ import "./home_component.css";
 
 const HomeComponentPresentation = ({ movies }) => {
   return (
-    <div className="App">
+    <div className="App style-components">
       {/* <h2 className="two-text">2<span className="watch-text">Watch</span></h2> */}
       <div className="movieTitle row">
         <MovieAndTitleComponent className="col-md-4 col-sm-2" movies={movies} />
