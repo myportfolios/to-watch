@@ -7,10 +7,9 @@ import {
   ACTION_KEY_SEARCH_MOVIES,
   ACTION_KEY_GET_MOVIES_COLLECTION,
   ACTION_KEY_AT_THE_CINEMAS
-} from "../reducers/reducer-constants";
-// import moviesData from '../../utils/movies-mock-data';
-import { HTTP_METHODS, API_URL } from "../../services/constants";
-import { fetchCommon } from "../../services/api";
+} from "store/reducers/reducer-constants";
+import { HTTP_METHODS, API_URL } from "services/constants";
+import { fetchCommon } from "services/api";
 
 export const getSuggestedMovies = () => dispatch => {
   return fetchCommon(API_URL.SUGGESTED_MOVIES, {}, HTTP_METHODS.GET)(

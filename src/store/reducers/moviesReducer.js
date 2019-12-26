@@ -8,7 +8,7 @@ import {
   ACTION_KEY_SEARCH_MOVIES,
   ACTION_KEY_GET_MOVIES_COLLECTION,
   ACTION_KEY_AT_THE_CINEMAS
-} from "../reducers/reducer-constants";
+} from "store/reducers/reducer-constants";
 
 export const suggestedMoviesReducer = (
   state = {

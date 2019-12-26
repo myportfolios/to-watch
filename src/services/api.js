@@ -1,7 +1,7 @@
 import { HTTP_METHODS } from "./constants";
-import { getActionTypes } from "../store/reducers/reducer-constants";
+import { getActionTypes } from "store/reducers/reducer-constants";
 // import {getJWTToken} from './utils';
-import { getApiUrl } from "../services/config";
+import { getApiUrl } from "services/config";
 
 //Fetch options (date, method, etc)
 

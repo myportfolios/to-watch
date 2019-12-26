@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  searchMovies,
-  getMoviesCollection
-} from "../../store/actions/moviesAction";
+import { searchMovies, getMoviesCollection } from "store/actions/moviesAction";
 
 import PropTypes from "prop-types";
 

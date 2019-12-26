@@ -1,6 +1,5 @@
 import React from "react";
 import "./headerComponent.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import GoogleAuth from "../GoogleAuth";
 
 import { NavLink } from "react-router-dom";

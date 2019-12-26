@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CLIENT_ID, SCOPES, BTN_TEXT_STATUS } from "../services/constants";
+import { CLIENT_ID, SCOPES, BTN_TEXT_STATUS } from "services/constants";
 
 export default class GoogleAuth extends Component {
   state = {
