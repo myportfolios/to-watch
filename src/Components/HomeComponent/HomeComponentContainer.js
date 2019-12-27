@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getSuggestedMovies } from "store/actions/moviesAction";
 
+import { getMoviesSelector } from "store/selectors/movie-title-selector";
+
 export class HomeComponentContainer extends Component {
   componentDidMount() {
     this.props.getSuggestedMovies();
@@ -23,7 +25,7 @@ HomeComponentContainer.propTypes = {
 };
 
 export const mapStateToProps = state => ({
-  movies: state.movies.data
+  movies: getMoviesSelector(state)
 });
 
 export default connect(

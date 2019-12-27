@@ -33,22 +33,20 @@ const HomeComponentPresentation = ({ movies }) => {
 export default HomeComponentPresentation;
 
 export const MovieAndTitleComponent = ({ movies }) => {
-  let size = 4;
-  let moviesJSX =
-    movies &&
-    movies.slice(0, size).map(movie => {
-      return (
-        <div key={movie.title}>
-          {/* <img className="img-thumbnail videoPlaceholder" alt="poster" src={movie.poster_path} /> */}
-          <img
-            className="img-thumbnail videoPlaceholder"
-            alt="poster"
-            src={`${BASE_URL}${POSTER_SIZES}${movie.poster_path}`}
-          />
-          <div className="title">{movie.title}</div>
-        </div>
-      );
-    });
+  let moviesJSX = movies.map(movie => {
+    let { title, posterPath } = movie;
+    return (
+      <div key={title}>
+        {/* <img className="img-thumbnail videoPlaceholder" alt="poster" src={movie.poster_path} /> */}
+        <img
+          className="img-thumbnail videoPlaceholder"
+          alt="poster"
+          src={`${BASE_URL}${POSTER_SIZES}${posterPath}`}
+        />
+        <div className="title">{title}</div>
+      </div>
+    );
+  });
 
   return <div className="flex">{moviesJSX}</div>;
 };
