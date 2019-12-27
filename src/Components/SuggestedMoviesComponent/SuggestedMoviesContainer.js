@@ -6,9 +6,9 @@ import {
   getOscarNominations,
   saveNominationUrlToStore,
   getCinemasMovies
-} from "../../store/actions/moviesAction";
+} from "store/actions/moviesAction";
 import PropTypes from "prop-types";
-import { OSCARS, OSCAR_API_URLS } from "../../services/constants";
+import { OSCARS, OSCAR_API_URLS } from "services/constants";
 
 import { connect } from "react-redux";
 

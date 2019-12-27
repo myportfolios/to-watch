@@ -1,5 +1,5 @@
 import { shallow } from "enzyme";
-import { SuggestedMoviesContainer } from "../../SuggestedMoviesComponent/SuggestedMoviesContainer";
+import { SuggestedMoviesContainer } from "../SuggestedMoviesContainer";
 import React from "react";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";

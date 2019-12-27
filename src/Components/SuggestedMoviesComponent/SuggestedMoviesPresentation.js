@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  BASE_URL,
-  POSTER_SIZES
-} from "../../store//reducers/reducer-constants";
+import { BASE_URL, POSTER_SIZES } from "store/reducers/reducer-constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./suggested-movies.css";
 import { useState } from "react";

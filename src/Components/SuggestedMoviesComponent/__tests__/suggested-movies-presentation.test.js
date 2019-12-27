@@ -49,17 +49,43 @@ describe("SuggestedMoviesPresentation", () => {
     <SuggestedMoviesGallery {...props} />
   );
   const wrapperFilterMoviesComponent = shallow(
-    <wrapperFilterMoviesComponent {...props} />
+    <FilterMoviesComponent
+      trendyMoviesHandler={props.trendyMoviesHandler}
+      oscarsMoviesHandler={props.oscarsMoviesHandler}
+      showOscars={props.showOscars}
+      setShowOscars={props.setShowOscars}
+      atTheCinemasHandler={props.atTheCinemasHandler}
+      latestMoviesHandlers={props.latestMoviesHandlers}
+      isLatestMoviesCalled={props.isLatestMoviesCalled}
+      isTrendyMoviesCalled={props.isTrendyMoviesCalled}
+      isOscarMovies2012Called={props.isOscarMovies2012Called}
+      isAtTheCinemas={props.isAtTheCinemas}
+      oscars_2012={props.oscars_2012}
+      setOscars_2012={props.setOscars_2012}
+      oscars_2011={props.oscars_2011}
+      setOscars_2011={props.setOscars_2011}
+      oscars_2010={props.oscars_2010}
+      setOscars_2010={props.setOscars_2010}
+      oscars_2009={props.oscars_2009}
+      setOscars_2009={props.setOscars_2009}
+    />
   );
+
   it("renders correctly", () => {
     expect(wrapper).toMatchSnapshot();
     expect(wrapperSuggestedMoviesGallery).toMatchSnapshot();
     expect(wrapperFilterMoviesComponent).toMatchSnapshot();
   });
-  it("triggers trendyMoviesHandler when `filter-movies-component` is clicked", () => {
-    wrapperFilterMoviesComponent.simulate("click");
-    expect(
-      wrapperFilterMoviesComponent.instance().trendyMoviesHandler
-    ).toHaveBeenCalled();
+  it("triggers trendyMoviesHandler fn when `filter-movies-component` is clicked", () => {
+    wrapperFilterMoviesComponent
+      .find(".menu-items")
+      .first() //runs on the first node. You can also use `.at(0)`
+      .simulate("click");
+    expect(props.trendyMoviesHandler).toHaveBeenCalled();
+    expect(props.setOscars_2012).toHaveBeenCalledWith(false);
+    expect(props.setOscars_2011).toHaveBeenCalledWith(false);
+    expect(props.setOscars_2010).toHaveBeenCalledWith(false);
+    expect(props.setOscars_2009).toHaveBeenCalledWith(false);
+    expect(props.setShowOscars).toHaveBeenCalledWith(false);
   });
 });

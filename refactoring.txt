@@ -1,0 +1,15 @@
+*header bg {color:#64B5F6}
+*.table thead th{
+background:#64B5F6}
+*a.link-style:{color:#F44336}
+*movie-title-style{color:#FF0000}
+*td tr {border:0.1px solid black};
+*.suggested-movies-section{border-top:1px solid blue}
+.movie-title-style{color:black(default),font-weight:500}
+*subscribe btn{}
+*card{
+bg-color:#fff;
+border:0.1rem solid #e2e8ee;
+border-radius:0.4rem;
+box-shadow:0 0.2rem 1rem 0 #e2e8ee;
+padding:3.6rem;
