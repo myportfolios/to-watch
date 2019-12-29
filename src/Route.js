@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import App from "./App";
-import HomeComponentContainer from "./Components/HomeComponent/HomeComponentContainer";
-import SearchResultContainer from "./Components/SearchResultComponent/SearchResultContainer";
-import SuggestedMoviesContainer from "./Components/SuggestedMoviesComponent/SuggestedMoviesContainer";
-import HeaderContainer from "./Components/HeaderComponent/HeaderContainer";
-import FooterComponent from "./Components/FooterComponent/FooterComponent";
+import HomeComponentContainer from "Components/HomeComponent/HomeComponentContainer";
+import SearchResultContainer from "Components/SearchResultComponent/SearchResultContainer";
+import SuggestedMoviesContainer from "Components/SuggestedMoviesComponent/SuggestedMoviesContainer";
+import HeaderContainer from "Components/HeaderComponent/HeaderContainer";
+import FooterComponent from "Components/FooterComponent/FooterComponent";
 import { Provider } from "react-redux";
-import store from "./store/store";
+import store from "store/store";
 
 import "./index.css";
 /*************Note*********************/

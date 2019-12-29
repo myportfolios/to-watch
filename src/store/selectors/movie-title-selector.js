@@ -16,7 +16,7 @@ export const getMoviesSelector = createSelector(
         posterPath: movies.poster_path
       };
     });
-    //maps() returns a new array, we don't need to return [moviesDataJSX]. we just return `moviesDataJSX`
+    //map() returns a new array, we don't need to return [moviesDataJSX]. we just return `moviesDataJSX`
     return moviesDataJSX;
   }
 );
