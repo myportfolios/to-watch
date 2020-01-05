@@ -6,6 +6,7 @@ import SearchResultContainer from "Components/SearchResultComponent/SearchResult
 import SuggestedMoviesContainer from "Components/SuggestedMoviesComponent/SuggestedMoviesContainer";
 import HeaderContainer from "Components/HeaderComponent/HeaderContainer";
 import FooterComponent from "Components/FooterComponent/FooterComponent";
+import MyCollections from "Components/MyCollectionsComponent/MyCollections";
 import { Provider } from "react-redux";
 import store from "store/store";
 
@@ -23,6 +24,7 @@ const Routes = (
         <Route path="/about" component={HomeComponentContainer} />
         <Route path="/trendy-movies" component={SuggestedMoviesContainer} />
         <Route path="/search-movie" component={SearchResultContainer} />
+        <Route path="/my-collections" component={MyCollections} />
         {/* <Route path="/contact" component={FooterComponent} /> */}
         <FooterComponent />
       </div>

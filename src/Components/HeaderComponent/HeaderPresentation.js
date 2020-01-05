@@ -39,6 +39,13 @@ export default function HeaderContainer() {
             Search for Movie
           </NavLink>
           <NavLink
+            to="/my-collections"
+            className="link-style"
+            activeClassName="activeLink"
+          >
+            My Collections
+          </NavLink>
+          <NavLink
             to="/contact"
             className="link-style"
             activeClassName="activeLink"
