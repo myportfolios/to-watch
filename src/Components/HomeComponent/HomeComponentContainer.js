@@ -28,7 +28,6 @@ export const mapStateToProps = state => ({
   movies: getMoviesSelector(state)
 });
 
-export default connect(
-  mapStateToProps,
-  { getSuggestedMovies }
-)(HomeComponentContainer);
+export default connect(mapStateToProps, { getSuggestedMovies })(
+  HomeComponentContainer
+);

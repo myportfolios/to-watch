@@ -71,7 +71,7 @@ export const SCOPES = {
 /************************************************************/
 /* Button Authentication*/
 /************************************************************/
-export const BTN_TEXT_STATUS = {
+export const LOGIN_STATUS = {
   GOOGLE_AUTH: "Google Auth",
   SIGN_IN: "Sign In",
   SIGN_OUT: "Sign Out"

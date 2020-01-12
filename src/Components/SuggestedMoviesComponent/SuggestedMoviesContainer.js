@@ -188,16 +188,13 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {
-    getLatestMovies,
-    getTrendyFilms,
-    getOscarNominations,
-    saveNominationUrlToStore,
-    getCinemasMovies
-  }
-)(SuggestedMoviesContainer);
+export default connect(mapStateToProps, {
+  getLatestMovies,
+  getTrendyFilms,
+  getOscarNominations,
+  saveNominationUrlToStore,
+  getCinemasMovies
+})(SuggestedMoviesContainer);
 
 SuggestedMoviesContainer.propTypes = {
   latestMovies: PropTypes.array.isRequired,

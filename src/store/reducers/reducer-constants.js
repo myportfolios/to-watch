@@ -25,6 +25,8 @@ export const ACTION_KEY_AT_THE_CINEMAS = "at_the_cinemas";
 
 export const ACTION_KEY_GET_NOMINATION_URL = "nomination_url";
 export const ACTION_KEY_GET_MOVIES_COLLECTION = "selected_movies";
+export const ACTION_KEY_SIGN_IN = "sign_in";
+export const ACTION_KEY_SIGN_OUT = "sign_out";
 
 //CONFIGURATION API//
 export const BASE_URL = "http://image.tmdb.org/t/p/";

@@ -54,7 +54,7 @@ export default function HeaderContainer() {
           </NavLink>
         </ul>
       </>
-      <div className="sign-in-icon-box">
+      <div className="sign-in-icon-box right menu">
         <GoogleAuth />
         {/* <span id="text-icon-circle">
           <FontAwesomeIcon className="icons" icon="user-circle" size="2x" />

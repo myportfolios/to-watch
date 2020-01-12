@@ -11,6 +11,7 @@ import {
   faUserCircle,
   faUserPlus
 } from "@fortawesome/free-solid-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 import Routes from "./Route";
 
@@ -22,7 +23,8 @@ library.add(
   faSpinner,
   faCircleNotch,
   faUserCircle,
-  faUserPlus
+  faUserPlus,
+  faGoogle
 );
 
 ReactDOM.render(Routes, document.getElementById("root"));

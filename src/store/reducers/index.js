@@ -9,7 +9,7 @@ import {
   getMoviesCollectionReducer,
   getCinemaMoviesReducer
 } from "./moviesReducer";
-
+import authReducer from "store/reducers/authReducer";
 export default combineReducers({
   movies: suggestedMoviesReducer,
   latestMovies: latestMoviesReducer,
@@ -18,5 +18,6 @@ export default combineReducers({
   nominationUrl: nominationUrlReducer,
   searchMovie: searchMovieReducer,
   movieCollection: getMoviesCollectionReducer,
-  atTheCinemas: getCinemaMoviesReducer
+  atTheCinemas: getCinemaMoviesReducer,
+  auth: authReducer
 });

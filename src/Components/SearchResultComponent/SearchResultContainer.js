@@ -104,10 +104,9 @@ const mapStateToProps = state => ({
   searchResult: state.searchMovie.data
 });
 
-export default connect(
-  mapStateToProps,
-  { searchMovies, getMoviesCollection }
-)(SearchResultContainer);
+export default connect(mapStateToProps, { searchMovies, getMoviesCollection })(
+  SearchResultContainer
+);
 
 // SearchResultContainer.propTypes = {
 
