@@ -73,7 +73,7 @@ export const SearchResultTable = ({
       );
     });
   return (
-    <table className="table">
+    <table className="table" id="search-table">
       <thead>
         <tr>
           <th scope="col">#</th>

@@ -45,7 +45,7 @@
   padding: 15px 45px;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin-top: 2.5rem;
+  margin-top: 3.5rem;
   margin-bottom: 2.5rem;
   border-radius: 90px;
   background: transparent;
@@ -62,4 +62,7 @@
 
 .add-padding {
   padding: 1rem 0;
+}
+#search-table{
+  margin-bottom: 8rem;
 }

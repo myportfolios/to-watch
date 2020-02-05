@@ -12,3 +12,6 @@ const store = createStore(
 );
 
 export default store;
+
+/*The script below will save all data in Redux Store btw page refreshes */
+//localhost:3000?debug_session=<some_string>
