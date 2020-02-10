@@ -36,6 +36,10 @@ export const OSCAR_API_URLS = {
     "https://api.themoviedb.org/3/list/9?language=en-US&api_key=2afb1d4ebd6b0b7548fc20dd30d0ac26"
 };
 
+// export const URL_DATABASE = {
+
+// }
+
 /**************************************************/
 /*HTTP METHODS*/
 /**************************************************/

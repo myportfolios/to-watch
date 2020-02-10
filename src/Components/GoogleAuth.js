@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CLIENT_ID, SCOPES, LOGIN_STATUS } from "services/constants";
+import { CLIENT_ID, SCOPES } from "services/constants";
 import { connect } from "react-redux";
 import { signIn, signOut } from "store/actions/moviesAction";
 class GoogleAuth extends Component {
@@ -25,7 +25,9 @@ class GoogleAuth extends Component {
     this.auth.signOut();
   };
   onAuthChange = isSignedIn => {
-    isSignedIn && this.props.signIn(this.auth.currentUser.get().getId());
+    const userId = this.auth.currentUser.get().getId();
+    const userName = this.auth.currentUser.get().getBasicProfile().ig;
+    isSignedIn && this.props.signIn(userId, userName);
     !isSignedIn && this.props.signOut();
   };
   renderAuthButton = () => {

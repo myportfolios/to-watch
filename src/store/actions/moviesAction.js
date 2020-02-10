@@ -10,10 +10,19 @@ import {
   ACTION_KEY_SIGN_IN,
   ACTION_KEY_SIGN_OUT
 } from "store/reducers/reducer-constants";
-import { HTTP_METHODS, API_URL, LOGIN_STATUS } from "services/constants";
+import { HTTP_METHODS, API_URL } from "services/constants";
 import { fetchCommon } from "services/api";
 
-export const getSuggestedMovies = () => dispatch => {
+// export const getSuggestedMovies = () => dispatch => {
+//   return fetchCommon(
+//     API_URL.SUGGESTED_MOVIES,
+//     {},
+//     HTTP_METHODS.GET
+//   )(dispatch, ACTION_KEY_GET_SELECTED_MOVIES);
+// };
+export const getSuggestedMovies = () => (dispatch, getState) => {
+  const state = getState().movieCollection;
+  console.log(state);
   return fetchCommon(
     API_URL.SUGGESTED_MOVIES,
     {},
@@ -71,10 +80,10 @@ export const getCinemasMovies = () => dispatch => {
     HTTP_METHODS.GET
   )(dispatch, ACTION_KEY_AT_THE_CINEMAS);
 };
-export const signIn = userId => {
+export const signIn = (userId, userName) => {
   return {
     type: ACTION_KEY_SIGN_IN,
-    payload: userId
+    payload: { userId, userName }
   };
 };
 
