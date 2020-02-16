@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const moviesCollectionSchema = new Schema(
+const moviesSchema = new Schema(
   {
     title: {
       type: String,
@@ -20,6 +20,6 @@ const moviesCollectionSchema = new Schema(
   }
 );
 
-const Movies = mongoose.model("Movie Collections", moviesCollectionSchema);
+const Movies = mongoose.model("Movies", moviesSchema);
 
 module.exports = Movies;

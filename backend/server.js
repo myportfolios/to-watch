@@ -25,6 +25,11 @@ connection.once("open", () => {
 connection.on("error", error => {
   console.log("Warning", error);
 });
+const moviesRouter = require("./routes/movies");
+const usersRouter = require("./routes/users");
+
+app.use("/movies", moviesRouter);
+app.use("/users", usersRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
