@@ -1,10 +1,11 @@
 const UI_LOCALHOST = "http://localhost:3000";
+const BACKEND_LOCALHOST = "http://localhost:5000";
 
 export function getApiUrl(
-  isSkipVersion = false,
+  // isSkipVersion = false,
   currOrigin = window.location.origin
 ) {
-  let versionNum = isSkipVersion ? "" : "a101/";
+  // let versionNum = isSkipVersion ? "" : "a101/";
 
   //To use mock server, switch currOrigin to localhost:8000, and use "npm run start:local"
   //const mock_server = "http://localhost:8000";
@@ -13,12 +14,15 @@ export function getApiUrl(
   //Mapping based on https:
 
   switch (currOrigin) {
-    case UI_LOCALHOST: {
+    case UI_LOCALHOST:
       //return mock_server;
       //return `${EDGE_LOCALHOST}/S{versionNum}`;
 
-      return `${UI_LOCALHOST}/${versionNum}`;
-    }
+      // return `${UI_LOCALHOST}/${versionNum}`;
+      return `${UI_LOCALHOST}`;
+
+    case BACKEND_LOCALHOST:
+      return BACKEND_LOCALHOST;
     default:
       return "";
   }

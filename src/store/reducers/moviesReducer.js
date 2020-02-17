@@ -215,12 +215,15 @@ export const searchMovieReducer = (
 };
 
 export const getMoviesCollectionReducer = (
-  state = [],
+  state = {},
   action = { type: "", payload: "" }
 ) => {
   switch (action.type) {
     case ACTION_KEY_GET_MOVIES_COLLECTION:
-      return [...state, action.payload];
+      return {
+        ...state,
+        data: action.payload
+      };
 
     default:
       return state;

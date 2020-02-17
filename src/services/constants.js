@@ -80,3 +80,13 @@ export const LOGIN_STATUS = {
   SIGN_IN: "Sign In",
   SIGN_OUT: "Sign Out"
 };
+
+/**************************************************/
+/*DATABASE ENDPOINTS*/
+/**************************************************/
+export const API_ENDPOINT = {
+  GET_SELECTED_MOVIES: "/movies/",
+  POST_SELECTED_MOVIES: "/movies/add",
+  GET_ALL_USERS: "/users/",
+  ADD_NEW_USER: "/users/add"
+};

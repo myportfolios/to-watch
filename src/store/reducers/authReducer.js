@@ -12,6 +12,7 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ACTION_KEY_SIGN_IN:
       const { userId, userName } = action.payload;
+      console.log(action.payload);
       return {
         ...state,
         isSignedIn: true,

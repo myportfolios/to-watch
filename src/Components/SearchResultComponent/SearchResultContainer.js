@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { searchMovies, getMoviesCollection } from "store/actions/moviesAction";
+import {
+  searchMovies,
+  getMoviesCollection,
+  postMoviesCollection
+} from "store/actions/moviesAction";
 
 import PropTypes from "prop-types";
 
@@ -15,6 +19,7 @@ export class SearchResultContainer extends Component {
 
   moviesCollectionHandler = () => {
     this.props.getMoviesCollection(this.state.selectedMovies);
+    this.props.postMoviesCollection();
   };
   // selectedMoviesHandler = (id, e) => {
   //   let checked = e.target.checked;
@@ -104,9 +109,11 @@ const mapStateToProps = state => ({
   searchResult: state.searchMovie.data
 });
 
-export default connect(mapStateToProps, { searchMovies, getMoviesCollection })(
-  SearchResultContainer
-);
+export default connect(mapStateToProps, {
+  searchMovies,
+  getMoviesCollection,
+  postMoviesCollection
+})(SearchResultContainer);
 
 // SearchResultContainer.propTypes = {
 
