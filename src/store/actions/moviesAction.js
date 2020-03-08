@@ -9,7 +9,8 @@ import {
   ACTION_KEY_AT_THE_CINEMAS,
   ACTION_KEY_POST_SELECTED_MOVIES,
   ACTION_KEY_SIGN_IN,
-  ACTION_KEY_SIGN_OUT
+  ACTION_KEY_SIGN_OUT,
+  ACTION_SAVE_USER_DETAILS
 } from "store/reducers/reducer-constants";
 import { HTTP_METHODS, API_URL, API_ENDPOINT } from "services/constants";
 import { fetchCommon } from "services/api";
@@ -126,4 +127,11 @@ export const postMoviesCollection = () => (dispatch, getState) => {
       console.log(res);
     })
     .catch(err => console.log("Error by Alex", err));
+};
+export const saveUserDetailsToStore = (name, value) => {
+  return {
+    type: ACTION_SAVE_USER_DETAILS,
+    name,
+    value
+  };
 };

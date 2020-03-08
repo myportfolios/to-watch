@@ -7,7 +7,8 @@ import {
   ACTION_KEY_GET_NOMINATION_URL,
   ACTION_KEY_SEARCH_MOVIES,
   ACTION_KEY_GET_MOVIES_COLLECTION,
-  ACTION_KEY_AT_THE_CINEMAS
+  ACTION_KEY_AT_THE_CINEMAS,
+  ACTION_SAVE_USER_DETAILS
 } from "store/reducers/reducer-constants";
 
 export const suggestedMoviesReducer = (
@@ -255,6 +256,23 @@ export const getCinemaMoviesReducer = (
         fetching: false,
         data: [],
         notifications: []
+      };
+    default:
+      return state;
+  }
+};
+
+export const saveUserDetailsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ACTION_SAVE_USER_DETAILS:
+      const { name, value } = action;
+      //return the state with updated fields and values
+      return {
+        ...state,
+        // userData: {
+        //   [name]: value
+        // }
+        [name]: value
       };
     default:
       return state;
